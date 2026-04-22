@@ -6,13 +6,13 @@
 #    By: frodrig2 <frodrig2@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/20 21:45:22 by frodrig2          #+#    #+#              #
-#    Updated: 2026/04/22 18:03:32 by frodrig2         ###   ########.fr        #
+#    Updated: 2026/04/22 21:48:02 by frodrig2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-CC = command cc
+CC = cc
 
 CFlAGS = -Wall -Wextra -Werror
 
@@ -29,7 +29,7 @@ $(OBJS):
 	$(CC) $(CFlAGS) -c $(SRCS) -o $(OBJS)
 
 test:
-	$(CC) $(CFLAGS) *.c -o runtests
+	$(CC) $(CFLAGS) *.c libft.h -o runtests
 
 clean:
 	rm -f $(OBJS)
