@@ -6,7 +6,7 @@
 /*   By: frodrig2 <frodrig2@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 22:13:37 by frodrig2          #+#    #+#             */
-/*   Updated: 2026/04/22 16:17:36 by frodrig2         ###   ########.fr       */
+/*   Updated: 2026/04/22 18:04:15 by frodrig2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ void	test_ft_isalpha(char c, int exp)
 
 int	main(int argc, char *argv)
 {
-	test_ft_isalpha(a, 1);
+	test_ft_isalpha('a', 1);
 }
