@@ -6,7 +6,7 @@
 #    By: frodrig2 <frodrig2@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/20 21:45:22 by frodrig2          #+#    #+#              #
-#    Updated: 2026/04/22 21:48:02 by frodrig2         ###   ########.fr        #
+#    Updated: 2026/04/22 23:12:02 by frodrig2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,8 +28,8 @@ $(NAME): $(OBJS)
 $(OBJS):
 	$(CC) $(CFlAGS) -c $(SRCS) -o $(OBJS)
 
-test:
-	$(CC) $(CFLAGS) *.c libft.h -o runtests
+test: all
+	$(CC) $(CFLAGS) test.c $(NAME) -o runtests
 
 clean:
 	rm -f $(OBJS)
@@ -37,7 +37,7 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 
-tclean:
+tclean: fclean
 	rm -f runtests
 
 re: fclean all
