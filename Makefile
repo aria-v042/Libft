@@ -6,7 +6,7 @@
 #    By: frodrig2 <frodrig2@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/20 21:45:22 by frodrig2          #+#    #+#              #
-#    Updated: 2026/04/22 23:12:02 by frodrig2         ###   ########.fr        #
+#    Updated: 2026/04/23 16:49:11 by frodrig2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ CC = cc
 
 CFlAGS = -Wall -Wextra -Werror
 
-SRCS = ft_isalpha.c
+SRCS =	ft_isalpha.c \
+		ft_isdigit.c
 
 OBJS = $(SRCS:.c=.o)
 
