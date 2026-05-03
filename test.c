@@ -37,44 +37,76 @@ static void	print_test(const char *test, int pass)
 	else
 	{
 		failed++;
-		printf("    [KO]  %s\n", test);
+		printf("    [FAIL]  %s\n", test);
 	}
 }
 
-static void	test_ft_isalpha()
+static void	test_ft_isalpha(void)
 {
 	int	prefailed;
 
 	prefailed = failed;
 	print_header("ft_isalpha");
-	print_test("ft_isalpha('a') ? 1", ft_isalpha('a') == 1);
-	print_test("ft_isalpha('Z') ? 1", ft_isalpha('Z') == 1);
+	print_test("ft_isalpha('/') ? 0", ft_isalpha('/') == 0);
+	print_test("ft_isalpha('0') ? 0", ft_isalpha('0') == 0);
 	print_test("ft_isalpha('9') ? 0", ft_isalpha('9') == 0);
-	print_test("ft_isalpha(' ') ? 0", ft_isalpha(' ') == 0);
-	print_test("ft_isalpha('\t') ? 0", ft_isalpha('\t') == 0);
+	print_test("ft_isalpha(':') ? 0", ft_isalpha(':') == 0);
+	print_test("ft_isalpha('@') ? 0", ft_isalpha('@') == 0);
+	print_test("ft_isalpha('A') ? 1", ft_isalpha('A') == 1);
+	print_test("ft_isalpha('Z') ? 1", ft_isalpha('Z') == 1);
+	print_test("ft_isalpha('[') ? 0", ft_isalpha('[') == 0);
+	print_test("ft_isalpha('`') ? 0", ft_isalpha('`') == 0);
+	print_test("ft_isalpha('a') ? 1", ft_isalpha('a') == 1);
+	print_test("ft_isalpha('z') ? 1", ft_isalpha('z') == 1);
+	print_test("ft_isalpha('{') ? 0", ft_isalpha('{') == 0);
 	if (failed == prefailed)
 		printf("\n >>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
 	else
 		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
 }
 
-static void	test_ft_isdigit()
+static void	test_ft_isdigit(void)
 {
 	int	prefailed;
 
 	prefailed = failed;
 	print_header("ft_isdigit");
-//	print_test("ft_isdigit('a') ? 1", ft_isdigitV('a') == 1);
-//	print_test("ft_isdigit('Z') ? 1", ft_isdigit('Z') == 1);
-//	print_test("ft_isdigit('9') ? 0", ft_isdigit('9') == 0);
-//	print_test("ft_isdigit(' ') ? 0", ft_isdigit(' ') == 0);
-//	print_test("ft_isdigit('\t') ? 0", ft_isdigit('\t') == 0);
+	print_test("ft_isdigit('/') ? 0", ft_isdigit('/') == 0);
 	print_test("ft_isdigit('0') ? 1", ft_isdigit('0') == 1);
 	print_test("ft_isdigit('9') ? 1", ft_isdigit('9') == 1);
-	print_test("ft_isdigit('a') ? 0", ft_isdigit('a') == 0);
+	print_test("ft_isdigit(':') ? 0", ft_isdigit(':') == 0);
+	print_test("ft_isdigit('@') ? 0", ft_isdigit('@') == 0);
+	print_test("ft_isdigit('A') ? 0", ft_isdigit('A') == 0);
 	print_test("ft_isdigit('Z') ? 0", ft_isdigit('Z') == 0);
-	print_test("ft_isdigit(' ') ? 0", ft_isdigit(' ') == 0);
-	print_test("ft_isdigit('\t') ? 0", ft_isdigit('\t') == 0);
+	print_test("ft_isdigit('[') ? 0", ft_isdigit('[') == 0);
+	print_test("ft_isdigit('`') ? 0", ft_isdigit('`') == 0);
+	print_test("ft_isdigit('a') ? 0", ft_isdigit('a') == 0);
+	print_test("ft_isdigit('z') ? 0", ft_isdigit('z') == 0);
+	print_test("ft_isdigit('{') ? 0", ft_isdigit('{') == 0);
+	if (failed == prefailed)
+		printf("\n >>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+	else
+		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+}
+
+static void	test_ft_isalnum(void)
+{
+	int	prefailed;
+
+	prefailed = failed;
+	print_header("ft_isalnum");
+	print_test("ft_isalnum('/') ? 0", ft_isalnum('/') == 0);
+	print_test("ft_isalnum('0') ? 1", ft_isalnum('0') == 1);
+	print_test("ft_isalnum('9') ? 1", ft_isalnum('9') == 1);
+	print_test("ft_isalnum(':') ? 0", ft_isalnum(':') == 0);
+	print_test("ft_isalnum('@') ? 0", ft_isalnum('@') == 0);
+	print_test("ft_isalnum('A') ? 1", ft_isalnum('A') == 1);
+	print_test("ft_isalnum('Z') ? 1", ft_isalnum('Z') == 1);
+	print_test("ft_isalnum('[') ? 0", ft_isalnum('[') == 0);
+	print_test("ft_isalnum('`') ? 0", ft_isalnum('`') == 0);
+	print_test("ft_isalnum('a') ? 1", ft_isalnum('a') == 1);
+	print_test("ft_isalnum('z') ? 1", ft_isalnum('z') == 1);
+	print_test("ft_isalnum('{') ? 0", ft_isalnum('{') == 0);
 	if (failed == prefailed)
 		printf("\n >>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
 	else
@@ -105,6 +137,7 @@ int	main(int argc, char **argv)
 	// LIBC FUNCTIONS:
 	test_ft_isalpha();
 	test_ft_isdigit();
+	test_ft_isalnum();
 	// SUMMARY:
 	print_summary();
 	return (1);
