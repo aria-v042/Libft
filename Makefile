@@ -18,6 +18,7 @@ SRCS = $(shell find $(SRCS_DIR) -name 'ft_*.c')
 OBJS_DIR = .
 OBJS = $(SRCS:.c=.o)
 TEST_C = test.c
+GOPEPPER_C = gopepper.c
 T_OUT = runtests
 
 all: $(NAME)
@@ -30,6 +31,9 @@ $(NAME): $(OBJS)
 
 test: all
 	$(CC) $(CFLAGS) $(TEST_C) $(NAME) -o $(T_OUT)
+
+gopepper: all
+	$(CC) $(CFLAGS) $(GOPEPPER_C) $(NAME) -o $(T_OUT)
 
 clean:
 	rm -f $(OBJS)
