@@ -13,49 +13,62 @@
 #include "libft.h"
 #include <stdio.h>
 
-void	test_ft_isalpha(int c, int exp)
+static int	tested = 0;
+static int	passed = 0;
+static int	failed = 0;
+
+static void	print_header(const char *title)
 {
-	printf("> ft_isalpha(%d) ? %d\n", c, exp);
-	if (ft_isalpha(c) == exp)
-		printf(">>> PASSED <<<\n");
-	else
-		printf("<<< FAILED >>>\n");
+	printf("");
 }
 
-void	test_ft_isdigit(int c, int exp)
+static void	print_test(const char *test, int pass)
 {
-	printf("> ft_isdigit(%d) ? %d\n", c, exp);
-	if (ft_isalpha(c) == exp)
-		printf(">>> PASSED <<<\n");
+	tested++;
+	if (pass)
+	{
+		passed++;
+		printf("  [PASS]:  %s\n", test);
+	}
 	else
-		printf("<<< FAILED >>>\n");
+	{
+		failed++;
+		printf("  [FAIL]:  %s\n", test);
+	}
+}
+
+static void	test_ft_isalpha(int c, int exp)
+{
+	print_header("ft_isalpha");
+	print_test("ft_isalpha('a') ? 1", ft_isalpha('a') == 1);
+	print_test("ft_isalpha('Z') ? 1", ft_isalpha('Z') == 1);
+	print_test("ft_isalpha('9') ? 0", ft_isalpha('9') == 0);
+	print_test("ft_isalpha(' ') ? 0", ft_isalpha(' ') == 0);
+	print_test("ft_isalpha('\t') ? 0", ft_isalpha('\t') == 0);
+}
+
+static void	test_ft_isdigit(int c, int exp)
+{
+	print_header("ft_isalpha");
+	print_test("ft_isalpha('a') ? 1", ft_isalpha('a') == 1);
+	print_test("ft_isalpha('Z') ? 1", ft_isalpha('Z') == 1);
+	print_test("ft_isalpha('9') ? 0", ft_isalpha('9') == 0);
+	print_test("ft_isalpha(' ') ? 0", ft_isalpha(' ') == 0);
+	print_test("ft_isalpha('\t') ? 0", ft_isalpha('\t') == 0);
+
+	// from main
+	printf("Testing ft_isdigit()...\n\n");
+	test_ft_isdigit('0', 1);
+	test_ft_isdigit('9', 1);
+	test_ft_isdigit('a', 0);
+	test_ft_isdigit('Z', 0);
+	test_ft_isdigit(' ', 0);
+	test_ft_isdigit('\t', 0);
 }
 
 int	main(int argc, char **argv)
 {
-	printf("Testing ft_isalpha()...\n\n");
-	test_ft_isalpha('a', 1);
-	printf("\n");
-	test_ft_isalpha('Z', 1);
-	printf("\n");
-	test_ft_isalpha('9', 0);
-	printf("\n");
-	test_ft_isalpha(' ', 0);
-	printf("\n");
-	test_ft_isalpha('\t', 0);
-	printf("\n");
-	printf("Testing ft_isdigit()...\n\n");
-	test_ft_isdigit('0', 1);
-	printf("\n");
-	test_ft_isdigit('9', 1);
-	printf("\n");
-	test_ft_isdigit('a', 0);
-	printf("\n");
-	test_ft_isdigit('Z', 0);
-	printf("\n");
-	test_ft_isdigit(' ', 0);
-	printf("\n");
-	test_ft_isdigit('\t', 0);
-	printf("\n");
+	test_ft_isalpha();
+	test_ft_isdigit();
 	return (1);
 }
