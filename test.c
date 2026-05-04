@@ -136,6 +136,30 @@ static void	test_ft_isascii(void)
 		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
 }
 
+static void	test_ft_isprint(void)
+{
+	int	prefailed;
+
+	prefailed = failed;
+	print_header("ft_isprint");
+	print_test("ft_isprint(-1) ? 0", ft_isprint(-1) == 0);
+	print_test("ft_isprint(0) ? 0", ft_isprint(0) == 0);
+	print_test("ft_isprint(31) ? 0", ft_isprint(31) == 0);
+	print_test("ft_isprint(' ') ? 1", ft_isprint(' ') == 1);
+	print_test("ft_isprint('/') ? 1", ft_isprint('/') == 1);
+	print_test("ft_isprint('0') ? 1", ft_isprint('0') == 1);
+	print_test("ft_isprint(':') ? 1", ft_isprint(':') == 1);
+	print_test("ft_isprint('Z') ? 1", ft_isprint('Z') == 1);
+	print_test("ft_isprint('a') ? 1", ft_isprint('a') == 1);
+	print_test("ft_isprint('~') ? 1", ft_isprint('~') == 1);
+	print_test("ft_isprint(127) ? 0", ft_isprint(127) == 0);
+	print_test("ft_isprint(128) ? 0", ft_isprint(128) == 0);
+	if (failed == prefailed)
+		printf("\n >>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+	else
+		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+}
+
 static void	print_summary(void)
 {
 	printf("\n");
@@ -162,6 +186,7 @@ int	main(int argc, char **argv)
 	test_ft_isdigit();
 	test_ft_isalnum();
 	test_ft_isascii();
+	test_ft_isprint();
 	// SUMMARY:
 	print_summary();
 	return (1);
