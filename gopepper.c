@@ -54,40 +54,40 @@ static void	test_isdigit(void)
 	print_test("ft_isdigit(' ') == 0", ft_isdigit(' ') == 0);
 }
 
-//static void	test_isalnum(void)
-//{
-//	print_header("ft_isalnum");
-//	print_test("ft_isalnum('a') == 1", ft_isalnum('a') == 1);
-//	print_test("ft_isalnum('5') == 1", ft_isalnum('5') == 1);
-//	print_test("ft_isalnum('!') == 0", ft_isalnum('!') == 0);
-//}
-//
-//static void	test_isascii(void)
-//{
-//	print_header("ft_isascii");
-//	print_test("ft_isascii(0)   == 1", ft_isascii(0) == 1);
-//	print_test("ft_isascii(127) == 1", ft_isascii(127) == 1);
-//	print_test("ft_isascii(128) == 0", ft_isascii(128) == 0);
-//	print_test("ft_isascii(-1)  == 0", ft_isascii(-1) == 0);
-//}
-//
-//static void	test_isprint(void)
-//{
-//	print_header("ft_isprint");
-//	print_test("ft_isprint(' ')  == 1", ft_isprint(' ') == 1);
-//	print_test("ft_isprint('~')  == 1", ft_isprint('~') == 1);
-//	print_test("ft_isprint('\n') == 0", ft_isprint('\n') == 0);
-//	print_test("ft_isprint(31)   == 0", ft_isprint(31) == 0);
-//}
-//
-//static void	test_strlen(void)
-//{
-//	print_header("ft_strlen");
-//	print_test("ft_strlen(\"hello\") == 5", ft_strlen("hello") == 5);
-//	print_test("ft_strlen(\"\")      == 0", ft_strlen("") == 0);
-//	print_test("ft_strlen(\"42\")    == 2", ft_strlen("42") == 2);
-//}
-//
+static void	test_isalnum(void)
+{
+	print_header("ft_isalnum");
+	print_test("ft_isalnum('a') == 1", ft_isalnum('a') == 1);
+	print_test("ft_isalnum('5') == 1", ft_isalnum('5') == 1);
+	print_test("ft_isalnum('!') == 0", ft_isalnum('!') == 0);
+}
+
+static void	test_isascii(void)
+{
+	print_header("ft_isascii");
+	print_test("ft_isascii(0)   == 1", ft_isascii(0) == 1);
+	print_test("ft_isascii(127) == 1", ft_isascii(127) == 1);
+	print_test("ft_isascii(128) == 0", ft_isascii(128) == 0);
+	print_test("ft_isascii(-1)  == 0", ft_isascii(-1) == 0);
+}
+
+static void	test_isprint(void)
+{
+	print_header("ft_isprint");
+	print_test("ft_isprint(' ')  == 1", ft_isprint(' ') == 1);
+	print_test("ft_isprint('~')  == 1", ft_isprint('~') == 1);
+	print_test("ft_isprint('\n') == 0", ft_isprint('\n') == 0);
+	print_test("ft_isprint(31)   == 0", ft_isprint(31) == 0);
+}
+
+static void	test_strlen(void)
+{
+	print_header("ft_strlen");
+	print_test("ft_strlen(\"hello\") == 5", ft_strlen("hello") == 5);
+	print_test("ft_strlen(\"\")      == 0", ft_strlen("") == 0);
+	print_test("ft_strlen(\"42\")    == 2", ft_strlen("42") == 2);
+}
+
 //static void	test_memset(void)
 //{
 //	char	buf[6];
