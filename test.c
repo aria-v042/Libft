@@ -32,12 +32,12 @@ static void	print_test(const char *test, int pass)
 	if (pass)
 	{
 		passed++;
-		printf("    [OK]  %s\n", test);
+		printf("  [OK]  %s\n", test);
 	}
 	else
 	{
 		failed++;
-		printf("    [FAIL]  %s\n", test);
+		printf("  [FAIL]  %s\n", test);
 	}
 }
 
