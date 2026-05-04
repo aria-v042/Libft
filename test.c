@@ -17,6 +17,8 @@ static int	tested = 0;
 static int	passed = 0;
 static int	failed = 0;
 
+/* ================= PRINTERS ================= */
+
 static void	print_header(const char *title)
 {
 	printf("\n");
@@ -40,6 +42,22 @@ static void	print_test(const char *test, int pass)
 		printf("  [FAIL]  %s\n", test);
 	}
 }
+
+static void	print_summary(void)
+{
+	printf("\n");
+	printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+	printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n");
+	printf("  SUMMARY:\n");
+	printf("\n");
+	printf("  Passed	%d/%d	tests\n", passed, tested);
+	printf("  Failed	%d/%d	tests\n", failed, tested);
+	printf("\n");
+	if (failed == 0)
+		printf("  All tests were successful!\n\n");
+}
+
+/* ============== LIBC FUNCTIONS ============== */
 
 static void	test_ft_isalpha(void)
 {
@@ -164,21 +182,9 @@ static void	test_ft_strlen(void)
 		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
 }
 
-static void	print_summary(void)
-{
-	printf("\n");
-	printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n");
-	printf("  SUMMARY:\n");
-	printf("\n");
-	printf("  Passed	%d/%d	tests\n", passed, tested);
-	printf("  Failed	%d/%d	tests\n", failed, tested);
-	printf("\n");
-	if (failed == 0)
-		printf("  All tests were successful!\n\n");
-}
+/* =================== MAIN ==================== */
 
-int	main(int argc, char **argv)
+int	main(void)
 {
 	printf("\n");
 	printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
