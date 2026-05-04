@@ -160,6 +160,21 @@ static void	test_ft_isprint(void)
 		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
 }
 
+static void	test_ft_strlen(void)
+{
+	int	prefailed;
+
+	prefailed = failed;
+	print_header("ft_strlen");
+	print_test("ft_strlen(\"\") ? 0", ft_strlen("") == 0);
+	print_test("ft_strlen(\"42\") ? 2", ft_strlen("42") == 2);
+	print_test("ft_strlen(\"hello friend\") ? 12", ft_strlen("hello friend") == 12);
+	if (failed == prefailed)
+		printf("\n >>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+	else
+		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+}
+
 static void	print_summary(void)
 {
 	printf("\n");
@@ -187,6 +202,7 @@ int	main(int argc, char **argv)
 	test_ft_isalnum();
 	test_ft_isascii();
 	test_ft_isprint();
+	test_ft_strlen();
 	// SUMMARY:
 	print_summary();
 	return (1);
