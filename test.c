@@ -12,6 +12,7 @@
 
 #include "libft.h"
 #include <stdio.h>
+#include <string.h>
 
 static int	tested = 0;
 static int	passed = 0;
@@ -184,12 +185,20 @@ static void	test_ft_strlen(void)
 
 static void	test_ft_memset(void)
 {
-	int	prefailed;
+	int		prefailed;
+	char	str[10];
 
 	prefailed = failed;
 	print_header("ft_memset");
-	print_test("ft_memset(\"hello friend\", \'x\', 9) ? \"xxxxxxxxxend\"", ft_strlen("hello friend", 'x', 9) == "xxxxxxxxxend");
-	print_test("ft_memset(\"bocal\", \'0\', 5) ? \"00000\"", ft_strlen("bocal", '0', 5) == "00000");
+	// test 1
+	str[5] = '\0';
+	ft_memset(str, 'x', 5);
+	print_test("ft_memset(str, 'x', 5) ? \"xxxxx\"", strcmp(str, "xxxxx") == 0);
+	// test 2
+	str[8] = '\0';
+	ft_memset(str, '0', 8);
+	print_test("ft_memset(str, '0', 8) ? \"00000000\"", strcmp(str, "00000000") == 0);
+
 	if (failed == prefailed)
 		printf("\n >>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
 	else
@@ -212,6 +221,7 @@ int	main(void)
 	test_ft_isascii();
 	test_ft_isprint();
 	test_ft_strlen();
+	test_ft_memset();
 	// SUMMARY:
 	print_summary();
 	return (1);
