@@ -110,15 +110,15 @@ static void	test_bzero(void)
 	print_test("ft_bzero zeroes 5 bytes", buf[0] == 0 && buf[4] == 0);
 }
 
-//static void	test_memcpy(void)
-//{
-//	char	dst[10];
-//
-//	print_header("ft_memcpy");
-//	ft_memcpy(dst, "hello", 6);
-//	print_test("ft_memcpy copies \"hello\"", strcmp(dst, "hello") == 0);
-//}
-//
+static void	test_memcpy(void)
+{
+	char	dst[10];
+
+	print_header("ft_memcpy");
+	ft_memcpy(dst, "hello", 6);
+	print_test("ft_memcpy copies \"hello\"", strcmp(dst, "hello") == 0);
+}
+
 //static void	test_memmove(void)
 //{
 //	char	buf[10] = "hello";
@@ -639,7 +639,7 @@ int	main(void)
 	test_strlen();
 	test_memset();
 	test_bzero();
-//	test_memcpy();
+	test_memcpy();
 //	test_memmove();
 //	test_strlcpy();
 //	test_strlcat();
