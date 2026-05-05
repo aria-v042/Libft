@@ -182,6 +182,20 @@ static void	test_ft_strlen(void)
 		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
 }
 
+static void	test_ft_memset(void)
+{
+	int	prefailed;
+
+	prefailed = failed;
+	print_header("ft_memset");
+	print_test("ft_memset(\"hello friend\", \'x\', 9) ? \"xxxxxxxxxend\"", ft_strlen("hello friend", 'x', 9) == "xxxxxxxxxend");
+	print_test("ft_memset(\"bocal\", \'0\', 5) ? \"00000\"", ft_strlen("bocal", '0', 5) == "00000");
+	if (failed == prefailed)
+		printf("\n >>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+	else
+		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+}
+
 /* =================== MAIN ==================== */
 
 int	main(void)
