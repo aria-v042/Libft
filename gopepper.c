@@ -88,28 +88,28 @@ static void	test_strlen(void)
 	print_test("ft_strlen(\"42\")    == 2", ft_strlen("42") == 2);
 }
 
-//static void	test_memset(void)
-//{
-//	char	buf[6];
-//
-//	print_header("ft_memset");
-//	ft_memset(buf, 'A', 5);
-//	buf[5] = '\0';
-//	print_test("ft_memset fills 5 bytes with 'A'", strcmp(buf, "AAAAA") == 0);
-//	ft_memset(buf, 0, 5);
-//	print_test("ft_memset fills 5 bytes with 0", buf[0] == 0 && buf[4] == 0);
-//}
-//
-//static void	test_bzero(void)
-//{
-//	char	buf[5];
-//
-//	print_header("ft_bzero");
-//	memset(buf, 'X', 5);
-//	ft_bzero(buf, 5);
-//	print_test("ft_bzero zeroes 5 bytes", buf[0] == 0 && buf[4] == 0);
-//}
-//
+static void	test_memset(void)
+{
+	char	buf[6];
+
+	print_header("ft_memset");
+	ft_memset(buf, 'A', 5);
+	buf[5] = '\0';
+	print_test("ft_memset fills 5 bytes with 'A'", strcmp(buf, "AAAAA") == 0);
+	ft_memset(buf, 0, 5);
+	print_test("ft_memset fills 5 bytes with 0", buf[0] == 0 && buf[4] == 0);
+}
+
+static void	test_bzero(void)
+{
+	char	buf[5];
+
+	print_header("ft_bzero");
+	memset(buf, 'X', 5);
+	ft_bzero(buf, 5);
+	print_test("ft_bzero zeroes 5 bytes", buf[0] == 0 && buf[4] == 0);
+}
+
 //static void	test_memcpy(void)
 //{
 //	char	dst[10];
@@ -633,12 +633,12 @@ int	main(void)
 	printf("\n>>> PART 1 - LIBC FUNCTIONS\n");
 	test_isalpha();
 	test_isdigit();
-//	test_isalnum();
-//	test_isascii();
-//	test_isprint();
-//	test_strlen();
-//	test_memset();
-//	test_bzero();
+	test_isalnum();
+	test_isascii();
+	test_isprint();
+	test_strlen();
+	test_memset();
+	test_bzero();
 //	test_memcpy();
 //	test_memmove();
 //	test_strlcpy();
