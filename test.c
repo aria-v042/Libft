@@ -26,7 +26,6 @@ static void	print_header(const char *title)
 	printf("==================================================\n");
 	printf("  TESTING: %s\n", title);
 	printf("==================================================\n");
-	//printf("\n");
 }
 
 static void	print_test(const char *test, int pass)
@@ -205,6 +204,25 @@ static void	test_ft_memset(void)
 		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
 }
 
+static void	test_ft_bzero(void)
+{
+	int		prefailed;
+	char	str[4];
+
+	prefailed = failed;
+	print_header("ft_bzero");
+	// test
+	memset(str, 'x', 4);
+	ft_bzero(str, 4);
+	print_test("ft_bzero(str, 4) ? zeroes 4 bytes", str[0] == 0
+			&& str[1] == 0 && str[2] == 0 && str[3] == 0);
+
+	if (failed == prefailed)
+		printf("\n >>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+	else
+		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+}
+
 /* =================== MAIN ==================== */
 
 int	main(void)
@@ -222,6 +240,7 @@ int	main(void)
 	test_ft_isprint();
 	test_ft_strlen();
 	test_ft_memset();
+	test_ft_bzero();
 	// SUMMARY:
 	print_summary();
 	return (1);
