@@ -119,15 +119,15 @@ static void	test_memcpy(void)
 	print_test("ft_memcpy copies \"hello\"", strcmp(dst, "hello") == 0);
 }
 
-//static void	test_memmove(void)
-//{
-//	char	buf[10] = "hello";
-//
-//	print_header("ft_memmove");
-//	ft_memmove(buf + 1, buf, 5);
-//	print_test("ft_memmove overlapping copy", strcmp(buf + 1, "hello") == 0);
-//}
-//
+static void	test_memmove(void)
+{
+	char	buf[10] = "hello";
+
+	print_header("ft_memmove");
+	ft_memmove(buf + 1, buf, 5);
+	print_test("ft_memmove overlapping copy", strcmp(buf + 1, "hello") == 0);
+}
+
 //static void	test_strlcpy(void)
 //{
 //	char	dst[10];
