@@ -14,12 +14,10 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	unsigned char	*aux = (unsigned char *)malloc(n);
+	unsigned char	*aux;
 
-	while (n-- > 0)
-		*(aux + n) = *((unsigned char *)src + n);
-	while ()
-
-	
+	aux = (unsigned char *)malloc(n);
+	ft_memcpy(aux, src, n);
+	ft_memcpy(dest, aux, n);
 	return (dest);
 }
