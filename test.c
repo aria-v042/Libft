@@ -240,6 +240,24 @@ static void	test_ft_memcpy(void)
 		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
 }
 
+static void	test_ft_memmove(void)
+{
+	int		prefailed;
+	char	test[10];
+
+	test = "testing";
+	print_header("ft_memmove");
+	ft_memmove(test + 3, test, 7);
+	print_test("ft_memmove(test + 3, test, 7)\n"
+			"		? copy \"testing\" from test to test+3",
+			strcmp(test + 3, "testing") == 0);
+
+	if (failed == prefailed)
+		printf("\n >>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+	else
+		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+}
+
 /* =================== MAIN ==================== */
 
 int	main(void)
@@ -259,6 +277,7 @@ int	main(void)
 	test_ft_memset();
 	test_ft_bzero();
 	test_ft_memcpy();
+	test_ft_memmove();
 	// SUMMARY:
 	print_summary();
 	return (1);
