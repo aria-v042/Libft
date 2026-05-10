@@ -263,6 +263,39 @@ static void	test_ft_memmove(void)
 		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
 }
 
+static void	test_ft_strlcpy(void)
+{
+	int		prefailed;
+	char	dst[5];
+	int		src_len;
+
+	print_header("ft_strlcpy");
+	// test 1
+	src_len = ft_strlcpy(dst, "test", sizeof(dst));
+	print_function_call("	ft_strlcpy(dst, \"test\", sizeof(dst))");
+	print_test("  ? copy \"test\" to dst (5 bytes)",
+		strcmp(dst, "test") == 0);
+	print_test("  ? return lenght of source (4)",
+		src_len == 4);
+	// test 2
+	src_len = ft_strlcpy(dst, "testing", sizeof(dst));
+	print_function_call("	ft_strlcpy(dst, \"testing\", sizeof(dst))");
+	print_test("  ? copy \"test\" to dst (5 bytes)",
+		strcmp(dst, "test") == 0);
+	// test 3
+	src_len = ft_strlcpy(dst, "test", 4);
+	print_function_call("	ft_strlcpy(dst, \"test\", 4)");
+	print_test("  ? copy \"tes\" to dst (5 bytes)",
+		strcmp(dst, "tes") == 0);
+	print_test("  ? truncate dst with NUL",
+		dst[3] == 0);
+
+	if (failed == prefailed)
+		printf("\n >>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+	else
+		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+}
+
 /* =================== MAIN ==================== */
 
 int	main(void)
@@ -283,6 +316,7 @@ int	main(void)
 	test_ft_bzero();
 	test_ft_memcpy();
 	test_ft_memmove();
+	test_ft_strlcpy();
 	// SUMMARY:
 	print_summary();
 	return (1);
