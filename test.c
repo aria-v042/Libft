@@ -13,6 +13,7 @@
 #include "libft.h"
 #include <stdio.h>
 #include <string.h>
+#include <stdarg.h>
 
 static int	tested = 0;
 static int	passed = 0;
@@ -26,6 +27,11 @@ static void	print_header(const char *title)
 	printf("==================================================\n");
 	printf("  TESTING: %s\n", title);
 	printf("==================================================\n");
+}
+
+static void	print_function_call(const char *test)
+{
+	printf("  %s\n", test);
 }
 
 static void	print_test(const char *test, int pass)
@@ -230,8 +236,8 @@ static void	test_ft_memcpy(void)
 
 	print_header("ft_memcpy");
 	ft_memcpy(dest, "testing", 7);
-	print_test("ft_memcpy(dest, \"testing\", 7)\n"
-			"		? copy \"testing\" to dest",
+	print_function_call("	ft_memcpy(dest, \"testing\", 7)");
+	print_test("  ? copy \"testing\" to dest",
 			strcmp(dest, "testing") == 0);
 
 	if (failed == prefailed)
@@ -247,8 +253,8 @@ static void	test_ft_memmove(void)
 
 	print_header("ft_memmove");
 	ft_memmove(src + 3, src, 7);
-	print_test("ft_memmove(src + 3, src, 7)\n"
-			"		? copy \"testing\" from src to src+3",
+	print_function_call("	ft_memmove(src + 3, src, 7)");
+	print_test("  ? copy \"testing\" from src to src+3",
 			strcmp(src + 3, "testing") == 0);
 
 	if (failed == prefailed)
