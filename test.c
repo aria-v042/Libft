@@ -29,7 +29,7 @@ static void	print_header(const char *title)
 	printf("==================================================\n");
 }
 
-static void	print_function_call(const char *test)
+static void	print_call(const char *test)
 {
 	printf("  %s\n", test);
 }
@@ -236,7 +236,7 @@ static void	test_ft_memcpy(void)
 
 	print_header("ft_memcpy");
 	ft_memcpy(dest, "testing", 7);
-	print_function_call("	ft_memcpy(dest, \"testing\", 7)");
+	print_call("	ft_memcpy(dest, \"testing\", 7)");
 	print_test("  ? copy \"testing\" to dest",
 			strcmp(dest, "testing") == 0);
 
@@ -253,7 +253,7 @@ static void	test_ft_memmove(void)
 
 	print_header("ft_memmove");
 	ft_memmove(src + 3, src, 7);
-	print_function_call("	ft_memmove(src + 3, src, 7)");
+	print_call("	ft_memmove(src + 3, src, 7)");
 	print_test("  ? copy \"testing\" from src to src+3",
 			strcmp(src + 3, "testing") == 0);
 
@@ -267,29 +267,47 @@ static void	test_ft_strlcpy(void)
 {
 	int		prefailed;
 	char	dst[5];
-	int		src_len;
+	int		len;
 
 	print_header("ft_strlcpy");
 	// test 1
-	src_len = ft_strlcpy(dst, "test", sizeof(dst));
-	print_function_call("	ft_strlcpy(dst, \"test\", sizeof(dst))");
+	len = ft_strlcpy(dst, "test", sizeof(dst));
+	print_call("	ft_strlcpy(dst, \"test\", sizeof(dst))");
 	print_test("  ? copy \"test\" to dst (5 bytes)",
 		strcmp(dst, "test") == 0);
 	print_test("  ? return lenght of source (4)",
-		src_len == 4);
+		len == 4);
 	// test 2
-	src_len = ft_strlcpy(dst, "testing", sizeof(dst));
-	print_function_call("	ft_strlcpy(dst, \"testing\", sizeof(dst))");
+	len = ft_strlcpy(dst, "testing", sizeof(dst));
+	print_call("	ft_strlcpy(dst, \"testing\", sizeof(dst))");
 	print_test("  ? copy \"test\" to dst (5 bytes)",
 		strcmp(dst, "test") == 0);
 	// test 3
-	src_len = ft_strlcpy(dst, "test", 4);
-	print_function_call("	ft_strlcpy(dst, \"test\", 4)");
+	len = ft_strlcpy(dst, "test", 4);
+	print_call("	ft_strlcpy(dst, \"test\", 4)");
 	print_test("  ? copy \"tes\" to dst (5 bytes)",
 		strcmp(dst, "tes") == 0);
 	print_test("  ? truncate dst with NUL",
 		dst[3] == 0);
 
+	if (failed == prefailed)
+		printf("\n >>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+	else
+		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+}
+
+static void	test_ft_strlcat(void)
+{
+	int		prefailed;
+	char	dst[10] = "test";
+	int		len;
+
+	print_header("ft_strlcat");
+	// test 1
+	len = strlcat(dst, "ing", sizeof(dst));
+	print_call("	ft_strlcat(dst, \"ing\", sizeof(dst))");
+	// TODO: print test
+	
 	if (failed == prefailed)
 		printf("\n >>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
 	else
