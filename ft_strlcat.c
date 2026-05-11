@@ -19,19 +19,19 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 
 	srclen = ft_strlen(src);
 	dstlen = ft_strlen(dst);
+	if (dstlen >= size)
+	{
+		dstlen = size;
+		return (size + srclen);
+	}
 	if (dstlen + srclen < size)
 	{
-		ft_memcpy(dst[dstlen], src, srclen);
-		dst[dstlen + strlen] = 0;
+		ft_memcpy(dst[dstlen], src, srclen + 1);
 	}
-	else if (size)
+	else
 	{
-		ft_memcpy(dst + dstlen, src, size - dstlen - 1);
+		ft_memcpy(dst[dstlen], src, size - dstlen - 1);
 		dst[size - 1] = 0;
 	}
 	return (dstlen + srclen);
 }
-// dst [y,i,p,\0, ]	--> len = 3, size = 5
-// src [i,e,\0]			--> len = 2, size = 3
-//
-// dst [y,i,p,i,\0] --> len = 4, size = 5
