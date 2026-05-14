@@ -327,6 +327,18 @@ static void	test_ft_strlcat(void)
 		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
 }
 
+static void test_ft_toupper(void)
+{
+	int prefailed = failed;
+
+	print_test("  ft_toupper('f') ? 'F'", ft_toupper('f') == 'F');
+
+	if (failed == prefailed)
+		printf("\n >>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+	else
+		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+}
+
 /* =================== MAIN ==================== */
 
 int	main(void)
@@ -349,6 +361,7 @@ int	main(void)
 	test_ft_memmove();
 	test_ft_strlcpy();
 	test_ft_strlcat();
+	test_ft_toupper();
 	// SUMMARY:
 	print_summary();
 	return (1);
