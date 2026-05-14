@@ -340,6 +340,7 @@ static void test_ft_tolower(void)
 	int prefailed = failed;
 
 	print_header("ft_tolower");
+
 	print_test("  ft_tolower('F') ? 'f'", ft_tolower('F') == 'f');
 	print_test("  ft_tolower('t') ? 't'", ft_tolower('t') == 't');
 	print_test("  ft_tolower('6') ? '6'", ft_tolower('6') == '6');
