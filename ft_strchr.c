@@ -6,7 +6,7 @@
 /*   By: frodrig2 <frodrig2@students.42porto.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 20:44:55 by frodrig2          #+#    #+#             */
-/*   Updated: 2026/05/14 20:55:20 by frodrig2         ###   ########.fr       */
+/*   Updated: 2026/05/14 21:30:38 by frodrig2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_strchr(const char *s, int c)
 {
 	char	*i;
 
-	i = s;
+	i = (char *)s;
 	while (*i && (*i != c))
 		i++;
 	if (*i == c)
