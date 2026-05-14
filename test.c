@@ -335,6 +335,22 @@ static void test_ft_toupper(void)
 		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
 }
 
+static void test_ft_tolower(void)
+{
+	int prefailed = failed;
+
+	print_header("ft_tolower");
+	print_test("  ft_tolower('F') ? 'f'", ft_tolower('F') == 'f');
+	print_test("  ft_tolower('t') ? 't'", ft_tolower('t') == 't');
+	print_test("  ft_tolower('6') ? '6'", ft_tolower('6') == '6');
+	print_test("  ft_tolower(21) ? 21", ft_tolower(21) == 21);
+
+	if (failed == prefailed)
+		printf("\n >>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+	else
+		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+}
+
 /* =================== MAIN ==================== */
 
 int	main(void)
