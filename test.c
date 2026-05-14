@@ -352,6 +352,20 @@ static void test_ft_tolower(void)
 		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
 }
 
+// static void	test_ft_NAME(void)
+// {
+// 	int prefailed = failed;
+// 
+// 	print_header("ft_NAME");
+// 
+// 	// tests
+// 
+// 	if (failed == prefailed)
+// 		printf("\n >>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+// 	else
+// 		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+// }
+
 /* =================== MAIN ==================== */
 
 int	main(void)
