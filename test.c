@@ -325,6 +325,9 @@ static void test_ft_toupper(void)
 
 	print_header("ft_toupper");
 	print_test("  ft_toupper('f') ? 'F'", ft_toupper('f') == 'F');
+	print_test("  ft_toupper('T') ? 'T'", ft_toupper('T') == 'T');
+	print_test("  ft_toupper('6') ? '6'", ft_toupper('6') == '6');
+	print_test("  ft_toupper(21) ? 21", ft_toupper(21) == 21);
 
 	if (failed == prefailed)
 		printf("\n >>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
