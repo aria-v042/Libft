@@ -67,7 +67,7 @@ static void	print_summary(void)
 
 static void	test_ft_isalpha(void)
 {
-	int	prefailed == failed;
+	int	prefailed = failed;
 
 	print_header("ft_isalpha");
 	print_test("ft_isalpha('0') ? 0", ft_isalpha('0') == 0);
@@ -85,7 +85,7 @@ static void	test_ft_isalpha(void)
 
 static void	test_ft_isdigit(void)
 {
-	int	prefailed == failed;
+	int	prefailed = failed;
 
 	print_header("ft_isdigit");
 	print_test("ft_isdigit('/') ? 0", ft_isdigit('/') == 0);
@@ -102,7 +102,7 @@ static void	test_ft_isdigit(void)
 
 static void	test_ft_isalnum(void)
 {
-	int	prefailed == failed;
+	int	prefailed = failed;
 
 	print_header("ft_isalnum");
 	print_test("ft_isalnum('/') ? 0", ft_isalnum('/') == 0);
@@ -125,7 +125,7 @@ static void	test_ft_isalnum(void)
 
 static void	test_ft_isascii(void)
 {
-	int	prefailed == failed;
+	int	prefailed = failed;
 
 	print_header("ft_isascii");
 	print_test("ft_isascii(-1) ? 0", ft_isascii(-1) == 0);
@@ -147,7 +147,7 @@ static void	test_ft_isascii(void)
 
 static void	test_ft_isprint(void)
 {
-	int	prefailed == failed;
+	int	prefailed = failed;
 
 	print_header("ft_isprint");
 	print_test("ft_isprint(-1) ? 0", ft_isprint(-1) == 0);
@@ -170,7 +170,7 @@ static void	test_ft_isprint(void)
 
 static void	test_ft_strlen(void)
 {
-	int	prefailed == failed;
+	int	prefailed = failed;
 
 	print_header("ft_strlen");
 	print_test("ft_strlen(\"\") ? 0", ft_strlen("") == 0);
@@ -184,7 +184,7 @@ static void	test_ft_strlen(void)
 
 static void	test_ft_memset(void)
 {
-	int		prefailed == failed;
+	int		prefailed = failed;
 	char	str[10];
 
 	print_header("ft_memset");
@@ -205,7 +205,7 @@ static void	test_ft_memset(void)
 
 static void	test_ft_bzero(void)
 {
-	int		prefailed == failed;
+	int		prefailed = failed;
 	char	str[4];
 
 	print_header("ft_bzero");
@@ -223,7 +223,7 @@ static void	test_ft_bzero(void)
 
 static void	test_ft_memcpy(void)
 {
-	int		prefailed == failed;
+	int		prefailed = failed;
 	char	dest[10];
 
 	print_header("ft_memcpy");
@@ -240,7 +240,7 @@ static void	test_ft_memcpy(void)
 
 static void	test_ft_memmove(void)
 {
-	int		prefailed == failed;
+	int		prefailed = failed;
 	char	src[10] = "testing";
 
 	print_header("ft_memmove");
@@ -257,7 +257,7 @@ static void	test_ft_memmove(void)
 
 static void	test_ft_strlcpy(void)
 {
-	int		prefailed == failed;
+	int		prefailed = failed;
 	char	dst[5];
 	int		len;
 
@@ -292,7 +292,7 @@ static void	test_ft_strlcpy(void)
 
 static void	test_ft_strlcat(void)
 {
-	int		prefailed == failed;
+	int		prefailed = failed;
 	char	dst[10] = "test";
 	int		len;
 
