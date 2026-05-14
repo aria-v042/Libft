@@ -374,6 +374,7 @@ int	main(void)
 	test_ft_strlcpy();
 	test_ft_strlcat();
 	test_ft_toupper();
+	test_ft_tolower();
 	// SUMMARY:
 	print_summary();
 	return (1);
