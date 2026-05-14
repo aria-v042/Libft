@@ -6,7 +6,7 @@
 /*   By: frodrig2 <frodrig2@students.42porto.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 20:44:55 by frodrig2          #+#    #+#             */
-/*   Updated: 2026/05/14 21:30:38 by frodrig2         ###   ########.fr       */
+/*   Updated: 2026/05/15 00:45:59 by frodrig2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	char	*i;
+	unsigned char	*i;
+	unsigned char	uc;
 
-	i = (char *)s;
-	while (*i && (*i != c))
+	i = (unsigned char *)s;
+	uc = (unsigned char) c;
+	while (*i && (*i != uc))
 		i++;
-	if (*i == c)
-		return (i);
+	if (*i == uc)
+		return ((char *)i);
 	return (NULL);
 }
