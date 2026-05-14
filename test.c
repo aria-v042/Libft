@@ -352,6 +352,24 @@ static void test_ft_tolower(void)
 		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
 }
 
+static void	test_ft_strchr(void)
+{
+	int prefailed = failed;
+	char	*s = "find 42";
+
+	print_header("ft_strchr");
+
+	print_test("  ft_strchr(s, 'f') ? s", ft_strchr(s, 'f') == s);
+	print_test("  ft_strchr(s, '4') ? (s + 5)", ft_strchr(s, '4') == (s + 5));
+	print_test("  ft_strchr(s, '\\0') ? (s + 7)", ft_strchr(s, '\0') == (s + 7));
+	print_test("  ft_strchr(s, 't') ? NULL", ft_strchr(s, 't') == NULL);
+
+	if (failed == prefailed)
+		printf("\n >>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+	else
+		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+}
+
 // static void	test_ft_NAME(void)
 // {
 // 	int prefailed = failed;
@@ -390,6 +408,7 @@ int	main(void)
 	test_ft_strlcat();
 	test_ft_toupper();
 	test_ft_tolower();
+	test_ft_strchr();
 	// SUMMARY:
 	print_summary();
 	return (1);
