@@ -306,24 +306,24 @@ static void	test_ft_strlcat(void)
 
 	print_header("ft_strlcat");
 	// test 1
-	len = strlcat(dst, "ing", sizeof(dst));
+	len = ft_strlcat(dst, "ing", sizeof(dst));
 	print_call("	ft_strlcat(dst, \"ing\", sizeof(dst))");
 	print_test("  ? append \"ing\" to the end of dst[] (\"test\")",
 			strcmp(dst, "testing") == 0);
 	print_test("  ? return length of concatenated string (7)",
 			len == 7);
 	// test 2
-	len = strlcat(dst, "ing", 7);
+	len = ft_strlcat(dst, "ing", 7);
 	print_call("	ft_strlcat(dst, \"ing\", 7)");
 	print_test("  ? append only \"in\" to dst[] (\"test\")",
 			strcmp(dst, "testin") == 0);
 	print_test("  ? return length of concatenated string (6)",
 			len == 6);
 	// test 3
-	len = strlcat(dst, "ing", 4);
+	len = ft_strlcat(dst, "ing", 4);
 	print_call("	ft_strlcat(dst, \"ing\", 4)");
 	print_test("  ? truncate dst[] with '\\0'",
-			dst[3] = 0;
+			dst[3] == 0);
 	print_test("  ? return length of truncated string (3)",
 			len == 3);
 
@@ -354,6 +354,7 @@ int	main(void)
 	test_ft_memcpy();
 	test_ft_memmove();
 	test_ft_strlcpy();
+	test_ft_strlcat();
 	// SUMMARY:
 	print_summary();
 	return (1);
