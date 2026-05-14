@@ -359,6 +359,7 @@ static void	test_ft_strchr(void)
 
 	print_header("ft_strchr");
 
+	print_call("        s[] = \"find 42\"");
 	print_test("  ft_strchr(s, 'f') ? s", ft_strchr(s, 'f') == s);
 	print_test("  ft_strchr(s, '4') ? (s + 5)", ft_strchr(s, '4') == (s + 5));
 	print_test("  ft_strchr(s, '\\0') ? (s + 7)", ft_strchr(s, '\0') == (s + 7));
