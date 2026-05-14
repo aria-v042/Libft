@@ -273,14 +273,14 @@ static void	test_ft_strlcpy(void)
 	// test 1
 	len = ft_strlcpy(dst, "test", sizeof(dst));
 	print_call("	ft_strlcpy(dst, \"test\", sizeof(dst))");
-	print_test("  ? copy \"test\" to dst[5]",
+	print_test("  ? copy \"test\" to dst",
 		strcmp(dst, "test") == 0);
 	print_test("  ? return lenght of source (4)",
 		len == 4);
 	// test 2
 	len = ft_strlcpy(dst, "testing", sizeof(dst));
 	print_call("	ft_strlcpy(dst, \"testing\", sizeof(dst))");
-	print_test("  ? copy only \"test\" to dst[5]",
+	print_test("  ? copy only \"test\" to dst",
 		strcmp(dst, "test") == 0);
 	print_test("  ? return lenght of source (7)",
 		len == 7);
@@ -308,24 +308,18 @@ static void	test_ft_strlcat(void)
 	// test 1
 	len = ft_strlcat(dst, "ing", sizeof(dst));
 	print_call("	ft_strlcat(dst, \"ing\", sizeof(dst))");
-	print_test("  ? append \"ing\" to the end of dst[] (\"test\")",
+	print_test("  ? append \"ing\" to the end of dst (\"test\")",
 			strcmp(dst, "testing") == 0);
-	print_test("  ? return length of concatenated string (7)",
+	print_test("  ? return length of \"testing\" (7)",
 			len == 7);
 	// test 2
+	memcpy(dst, "test\0", 5);
 	len = ft_strlcat(dst, "ing", 7);
 	print_call("	ft_strlcat(dst, \"ing\", 7)");
-	print_test("  ? append only \"in\" to dst[] (\"test\")",
+	print_test("  ? append \"in\" to dst and NUL-terminate",
 			strcmp(dst, "testin") == 0);
-	print_test("  ? return length of concatenated string (6)",
-			len == 6);
-	// test 3
-	len = ft_strlcat(dst, "ing", 4);
-	print_call("	ft_strlcat(dst, \"ing\", 4)");
-	print_test("  ? truncate dst[] with '\\0'",
-			dst[3] == 0);
-	print_test("  ? return length of truncated string (3)",
-			len == 3);
+	print_test("  ? return length of \"testing\" (7)",
+			len == 7);
 
 	if (failed == prefailed)
 		printf("\n >>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
