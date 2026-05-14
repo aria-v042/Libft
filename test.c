@@ -362,9 +362,29 @@ static void	test_ft_strchr(void)
 	print_call("        s[] = \"finding 42\"");
 	print_test("  ft_strchr(s, 'f') ? s", ft_strchr(s, 'f') == s);
 	print_test("  ft_strchr(s, 'i') ? &s[1]", ft_strchr(s, 'i') == &s[1]);
-	print_test("  ft_strchr(s, '4') ? &s[5]", ft_strchr(s, '4') == &s[5]);
-	print_test("  ft_strchr(s, '\\0') ? &s[7]", ft_strchr(s, '\0') == &s[7]);
+	print_test("  ft_strchr(s, '4') ? &s[8]", ft_strchr(s, '4') == &s[8]);
+	print_test("  ft_strchr(s, '\\0') ? &s[10]", ft_strchr(s, '\0') == &s[10]);
 	print_test("  ft_strchr(s, 't') ? NULL", ft_strchr(s, 't') == NULL);
+
+	if (failed == prefailed)
+		printf("\n >>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+	else
+		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+}
+
+static void	test_ft_strrchr(void)
+{
+	int prefailed = failed;
+	char	*s = "finding 42";
+
+	print_header("ft_strrchr");
+
+	print_call("        s[] = \"finding 42\"");
+	print_test("  ft_strrchr(s, 'f') ? s", ft_strrchr(s, 'f') == s);
+	print_test("  ft_strrchr(s, 'i') ? &s[4]", ft_strrchr(s, 'i') == &s[4]);
+	print_test("  ft_strrchr(s, '4') ? &s[8]", ft_strrchr(s, '4') == &s[8]);
+	print_test("  ft_strrchr(s, '\\0') ? &s[10]", ft_strrchr(s, '\0') == &s[10]);
+	print_test("  ft_strrchr(s, 't') ? NULL", ft_strrchr(s, 't') == NULL);
 
 	if (failed == prefailed)
 		printf("\n >>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
@@ -411,6 +431,7 @@ int	main(void)
 	test_ft_toupper();
 	test_ft_tolower();
 	test_ft_strchr();
+	test_ft_strrchr();
 	// SUMMARY:
 	print_summary();
 	return (1);
