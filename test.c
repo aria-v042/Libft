@@ -398,11 +398,11 @@ static void	test_ft_strncmp(void)
 
 	print_header("ft_strncmp");
 
-	print_test("  ft_strncmp(\"test\", \"test\", 4) == strncmp(\"test\", \"test\", 4)",
+	print_test("  ft_strncmp(\"test\", \"test\", 4)",
 			ft_strncmp("test", "test", 4) == strncmp("test", "test", 4));
-	print_test("  ft_strncmp(\"test\", \"testing\", 4) == strncmp(\"test\", \"testing\", 4)",
+	print_test("  ft_strncmp(\"test\", \"testing\", 4)",
 			ft_strncmp("test", "testing", 4) == strncmp("test", "testing", 4));
-	print_test("  ft_strncmp(\"test\", \"testing\", 7) == strncmp(\"test\", \"testing\", 7)",
+	print_test("  ft_strncmp(\"test\", \"testing\", 7)",
 			ft_strncmp("test", "testing", 7) == strncmp("test", "testing", 7));
 
 	if (failed == prefailed)
