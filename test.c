@@ -465,7 +465,5 @@ int	main(void)
 	test_ft_strncmp();
 	// SUMMARY:
 	print_summary();
-	printf("\n  %d\n\n", ft_strncmp("test", "testing", 7));
-	printf("\n  %d\n\n", strncmp("test", "testing", 7));
 	return (1);
 }
