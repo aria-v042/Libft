@@ -446,6 +446,28 @@ static void	test_ft_memchr(void)
 		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
 }
 
+static void	test_ft_memcmp(void)
+{
+	int prefailed = failed;
+
+	print_header("ft_memcmp");
+
+	// tests
+	print_test("  ft_memcmp(\"abcde\", \"abcdx\", 5)",
+			getsign(ft_memcmp("abcde", "abcdx", 5)) == getsign(memcmp("abcde", "abcdx", 5)));
+	print_test("  ft_memcmp(\"abcde\", \"abcdx\", 4)",
+			getsign(ft_memcmp("abcde", "abcdx", 4)) == getsign(memcmp("abcde", "abcdx", 4)));
+	print_test("  ft_memcmp(\"abcde\", \"xxxxx\", 0)",
+			getsign(ft_memcmp("abcde", "xxxxx", 0)) == getsign(memcmp("abcde", "xxxxx", 0)));
+	print_test("  ft_memcmp(\"xxxxx\", \"abcde\", 1)",
+			getsign(ft_memcmp("xxxxx", "abcde", 1)) == getsign(memcmp("xxxxx", "abcde", 1)));
+
+	if (failed == prefailed)
+		printf("\n >>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+	else
+		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+}
+
 // static void	test_ft_NAME(void)
 // {
 // 	int prefailed = failed;
@@ -488,6 +510,7 @@ int	main(void)
 	test_ft_strrchr();
 	test_ft_strncmp();
 	test_ft_memchr();
+	test_ft_memcmp();
 	// SUMMARY:
 	print_summary();
 	return (1);
