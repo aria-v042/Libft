@@ -65,7 +65,7 @@ static void	print_summary(void)
 
 /* ============ AUXILIARY FUNCTIONS =========== */
 
-static int	get_sign(int n)
+static int	getsign(int n)
 {
 	if (n > 0)
 		return (1);
