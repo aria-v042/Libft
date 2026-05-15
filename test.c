@@ -422,6 +422,30 @@ static void	test_ft_strncmp(void)
 		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
 }
 
+static void	test_ft_memchr(void)
+{
+	int prefailed = failed;
+
+	print_header("ft_memchr");
+
+	// tests
+	print_test("  ft_memchr(\"abcde\", 'c', 5)",
+			ft_memchr("abcde", 'c', 5) == memchr("abcde", 'c', 5));
+	print_test("  ft_memchr(\"abcde\", 'a', 1)",
+			ft_memchr("abcde", 'a', 1) == memchr("abcde", 'a', 1));
+	print_test("  ft_memchr(\"abcde\", 'a', 0)",
+			ft_memchr("abcde", 'a', 0) == memchr("abcde", 'a', 0));
+	print_test("  ft_memchr(\"abcde\", '\\0', 5)",
+			ft_memchr("abcde", '\0', 5) == memchr("abcde", '\0', 5));
+	print_test("  ft_memchr(\"abcde\", '\\0', 6)",
+			ft_memchr("abcde", '\0', 6) == memchr("abcde", '\0', 6));
+
+	if (failed == prefailed)
+		printf("\n >>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+	else
+		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+}
+
 // static void	test_ft_NAME(void)
 // {
 // 	int prefailed = failed;
@@ -463,6 +487,7 @@ int	main(void)
 	test_ft_strchr();
 	test_ft_strrchr();
 	test_ft_strncmp();
+	test_ft_memchr();
 	// SUMMARY:
 	print_summary();
 	return (1);
