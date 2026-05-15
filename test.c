@@ -392,6 +392,21 @@ static void	test_ft_strrchr(void)
 		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
 }
 
+static void	test_ft_strncmp(void)
+{
+	int prefailed = failed;
+
+	print_header("ft_strncmp");
+
+	print_test("  ft_strncmp(\"test\", \"test\", 4) == strncmp(\"test\", \"test\", 4)",
+			ft_strncmp("test", "test", 4) == strncmp("test", "test", 4));
+
+	if (failed == prefailed)
+		printf("\n >>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+	else
+		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+}
+
 // static void	test_ft_NAME(void)
 // {
 // 	int prefailed = failed;
@@ -432,6 +447,7 @@ int	main(void)
 	test_ft_tolower();
 	test_ft_strchr();
 	test_ft_strrchr();
+	test_ft_strncmp();
 	// SUMMARY:
 	print_summary();
 	return (1);
