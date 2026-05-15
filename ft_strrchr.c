@@ -6,7 +6,7 @@
 /*   By: frodrig2 <frodrig2@students.42porto.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 20:44:55 by frodrig2          #+#    #+#             */
-/*   Updated: 2026/05/15 00:56:26 by frodrig2         ###   ########.fr       */
+/*   Updated: 2026/05/15 01:55:42 by frodrig2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int	i;
+	int				i;
 	unsigned char	uc;
 
 	i = ft_strlen(s);

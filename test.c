@@ -400,6 +400,10 @@ static void	test_ft_strncmp(void)
 
 	print_test("  ft_strncmp(\"test\", \"test\", 4) == strncmp(\"test\", \"test\", 4)",
 			ft_strncmp("test", "test", 4) == strncmp("test", "test", 4));
+	print_test("  ft_strncmp(\"test\", \"testing\", 4) == strncmp(\"test\", \"testing\", 4)",
+			ft_strncmp("test", "testing", 4) == strncmp("test", "testing", 4));
+	print_test("  ft_strncmp(\"test\", \"testing\", 7) == strncmp(\"test\", \"testing\", 7)",
+			ft_strncmp("test", "testing", 7) == strncmp("test", "testing", 7));
 
 	if (failed == prefailed)
 		printf("\n >>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
@@ -450,5 +454,7 @@ int	main(void)
 	test_ft_strncmp();
 	// SUMMARY:
 	print_summary();
+	printf("\n  %d\n\n", ft_strncmp("test", "testing", 7));
+	printf("\n  %d\n\n", strncmp("test", "testing", 7));
 	return (1);
 }
