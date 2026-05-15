@@ -63,6 +63,17 @@ static void	print_summary(void)
 		printf("  All tests were successful!\n\n");
 }
 
+/* ============ AUXILIARY FUNCTIONS =========== */
+
+static int	get_sign(int n)
+{
+	if (n > 0)
+		return (1);
+	if (n < 0)
+		return (-1);
+	return (0);
+}
+
 /* ============== LIBC FUNCTIONS ============== */
 
 static void	test_ft_isalpha(void)
