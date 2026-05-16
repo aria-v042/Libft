@@ -471,14 +471,18 @@ static void	test_ft_memcmp(void)
 static void	test_ft_strnstr(void)
 {
 	int		prefailed = failed;
-	char	big[] = "abcabcdabcde";
+	char	s[] = "abcabcdabcde";
 
 	print_header("ft_strnstr");
 
 	// tests
-	print_call("	  big[] = \"abcabcdabcde\"");
-	print_test("  ft_strnstr(big, \"x\", strlen(big)) == NULL",
-			ft_strnstr(big, "x", strlen(big)) == NULL);
+	print_call("	  s[] = \"abcabcdabcde\" (12)");
+	print_test("  ft_strnstr(s, \"x\", 12) == NULL",
+			ft_strnstr(s, "x", strlen(s)) == NULL);
+	print_test("  ft_strnstr(s, \"xyz\", 12) == NULL",
+			ft_strnstr(s, "xyz", strlen(s)) == NULL);
+	print_test("  ft_strnstr(s, \"a\", 12) == &s[0]",
+			ft_strnstr(s, "a", strlen(s)) == &s[0]);
 
 	if (failed == prefailed)
 		printf("\n >>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
