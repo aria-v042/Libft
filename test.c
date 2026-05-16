@@ -33,7 +33,7 @@ static void	print_header(const char *title)
 {
 	printf("\n");
 	printf("==================================================\n");
-	printf("  TESTING: %s\n", title);
+	printf("  TESTING: " ANSI_COLOR_CYAN "%s" ANSI_COLOR_RESET "\n", title);
 	printf("==================================================\n");
 }
 
@@ -516,10 +516,12 @@ static void	test_ft_strnstr(void)
 
 int	main(void)
 {
+	printf(ANSI_COLOR_MAGENTA);
 	printf("\n");
-	printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	printf("              ARIACORE: LIBFT TESTER              \n");
-	printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+	printf(ANSI_COLOR_CYAN "///" ANSI_COLOR_MAGENTA "-============================================-" ANSI_COLOR_CYAN "/" ANSI_COLOR_MAGENTA "\n");
+	printf(ANSI_COLOR_CYAN "//            ARIACORE: LIBFT TESTER            //" ANSI_COLOR_MAGENTA "\n");
+	printf(ANSI_COLOR_CYAN "/" ANSI_COLOR_MAGENTA "-============================================-" ANSI_COLOR_CYAN "///" ANSI_COLOR_MAGENTA "\n");
+	printf(ANSI_COLOR_RESET);
 
 	// LIBC FUNCTIONS:
 	test_ft_isalpha();
