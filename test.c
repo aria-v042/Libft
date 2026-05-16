@@ -48,12 +48,12 @@ static void	print_test(const char *test, int pass)
 	if (pass)
 	{
 		passed++;
-		printf("  [OK]  %s\n", test);
+		printf(ANSI_COLOR_GREEN "  [OK]  " ANSI_COLOR_RESET "%s\n", test);
 	}
 	else
 	{
 		failed++;
-		printf("  [FAIL]  %s\n", test);
+		printf(ANSI_COLOR_RED "  [FAIL]  " ANSI_COLOR_RESET "%s\n", test);
 	}
 }
 
@@ -64,11 +64,11 @@ static void	print_summary(void)
 	printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n");
 	printf("  SUMMARY:\n");
 	printf("\n");
-	printf("  Passed	%d/%d	tests\n", passed, tested);
-	printf("  Failed	%d/%d	tests\n", failed, tested);
+	printf("  Passed	" ANSI_COLOR_GREEN "%d" ANSI_COLOR_RESET "/%d	tests\n", passed, tested);
+	printf("  Failed	" ANSI_COLOR_RED "%d" ANSI_COLOR_RESET "/%d	tests\n", failed, tested);
 	printf("\n");
 	if (failed == 0)
-		printf("  All tests were successful!\n\n");
+		printf(ANSI_COLOR_GREEN "  All tests were successful!" ANSI_COLOR_RESET "\n\n");
 }
 
 /* ============ AUXILIARY FUNCTIONS =========== */
@@ -97,9 +97,9 @@ static void	test_ft_isalpha(void)
 	print_test("ft_isalpha('z') ? 1", ft_isalpha('z') == 1);
 	print_test("ft_isalpha('{') ? 0", ft_isalpha('{') == 0);
 	if (failed == prefailed)
-		printf("\n >>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+		printf("\n " ANSI_COLOR_GREEN ">>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<" ANSI_COLOR_RESET "\n");
 	else
-		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+		printf("\n " ANSI_COLOR_RED "<<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" ANSI_COLOR_RESET "\n");
 }
 
 static void	test_ft_isdigit(void)
@@ -114,9 +114,9 @@ static void	test_ft_isdigit(void)
 	print_test("ft_isdigit('a') ? 0", ft_isdigit('a') == 0);
 	print_test("ft_isdigit('{') ? 0", ft_isdigit('{') == 0);
 	if (failed == prefailed)
-		printf("\n >>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+		printf("\n " ANSI_COLOR_GREEN ">>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<" ANSI_COLOR_RESET "\n");
 	else
-		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+		printf("\n " ANSI_COLOR_RED "<<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" ANSI_COLOR_RESET "\n");
 }
 
 static void	test_ft_isalnum(void)
@@ -137,9 +137,9 @@ static void	test_ft_isalnum(void)
 	print_test("ft_isalnum('z') ? 1", ft_isalnum('z') == 1);
 	print_test("ft_isalnum('{') ? 0", ft_isalnum('{') == 0);
 	if (failed == prefailed)
-		printf("\n >>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+		printf("\n " ANSI_COLOR_GREEN ">>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<" ANSI_COLOR_RESET "\n");
 	else
-		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+		printf("\n " ANSI_COLOR_RED "<<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" ANSI_COLOR_RESET "\n");
 }
 
 static void	test_ft_isascii(void)
@@ -159,9 +159,9 @@ static void	test_ft_isascii(void)
 	print_test("ft_isascii(127) ? 1", ft_isascii(127) == 1);
 	print_test("ft_isascii(128) ? 0", ft_isascii(128) == 0);
 	if (failed == prefailed)
-		printf("\n >>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+		printf("\n " ANSI_COLOR_GREEN ">>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<" ANSI_COLOR_RESET "\n");
 	else
-		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+		printf("\n " ANSI_COLOR_RED "<<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" ANSI_COLOR_RESET "\n");
 }
 
 static void	test_ft_isprint(void)
@@ -182,9 +182,9 @@ static void	test_ft_isprint(void)
 	print_test("ft_isprint(127) ? 0", ft_isprint(127) == 0);
 	print_test("ft_isprint(128) ? 0", ft_isprint(128) == 0);
 	if (failed == prefailed)
-		printf("\n >>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+		printf("\n " ANSI_COLOR_GREEN ">>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<" ANSI_COLOR_RESET "\n");
 	else
-		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+		printf("\n " ANSI_COLOR_RED "<<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" ANSI_COLOR_RESET "\n");
 }
 
 static void	test_ft_strlen(void)
@@ -196,9 +196,9 @@ static void	test_ft_strlen(void)
 	print_test("ft_strlen(\"42\") ? 2", ft_strlen("42") == 2);
 	print_test("ft_strlen(\"hello friend\") ? 12", ft_strlen("hello friend") == 12);
 	if (failed == prefailed)
-		printf("\n >>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+		printf("\n " ANSI_COLOR_GREEN ">>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<" ANSI_COLOR_RESET "\n");
 	else
-		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+		printf("\n " ANSI_COLOR_RED "<<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" ANSI_COLOR_RESET "\n");
 }
 
 static void	test_ft_memset(void)
@@ -217,9 +217,9 @@ static void	test_ft_memset(void)
 	print_test("ft_memset(str, '0', 8) ? \"00000000\"", strcmp(str, "00000000") == 0);
 
 	if (failed == prefailed)
-		printf("\n >>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+		printf("\n " ANSI_COLOR_GREEN ">>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<" ANSI_COLOR_RESET "\n");
 	else
-		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+		printf("\n " ANSI_COLOR_RED "<<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" ANSI_COLOR_RESET "\n");
 }
 
 static void	test_ft_bzero(void)
@@ -235,9 +235,9 @@ static void	test_ft_bzero(void)
 			&& str[1] == 0 && str[2] == 0 && str[3] == 0);
 
 	if (failed == prefailed)
-		printf("\n >>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+		printf("\n " ANSI_COLOR_GREEN ">>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<" ANSI_COLOR_RESET "\n");
 	else
-		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+		printf("\n " ANSI_COLOR_RED "<<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" ANSI_COLOR_RESET "\n");
 }
 
 static void	test_ft_memcpy(void)
@@ -252,9 +252,9 @@ static void	test_ft_memcpy(void)
 			strcmp(dest, "testing") == 0);
 
 	if (failed == prefailed)
-		printf("\n >>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+		printf("\n " ANSI_COLOR_GREEN ">>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<" ANSI_COLOR_RESET "\n");
 	else
-		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+		printf("\n " ANSI_COLOR_RED "<<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" ANSI_COLOR_RESET "\n");
 }
 
 static void	test_ft_memmove(void)
@@ -269,9 +269,9 @@ static void	test_ft_memmove(void)
 			strcmp(src + 3, "testing") == 0);
 
 	if (failed == prefailed)
-		printf("\n >>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+		printf("\n " ANSI_COLOR_GREEN ">>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<" ANSI_COLOR_RESET "\n");
 	else
-		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+		printf("\n " ANSI_COLOR_RED "<<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" ANSI_COLOR_RESET "\n");
 }
 
 static void	test_ft_strlcpy(void)
@@ -304,9 +304,9 @@ static void	test_ft_strlcpy(void)
 		dst[3] == 0);
 
 	if (failed == prefailed)
-		printf("\n >>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+		printf("\n " ANSI_COLOR_GREEN ">>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<" ANSI_COLOR_RESET "\n");
 	else
-		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+		printf("\n " ANSI_COLOR_RED "<<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" ANSI_COLOR_RESET "\n");
 }
 
 static void	test_ft_strlcat(void)
@@ -333,9 +333,9 @@ static void	test_ft_strlcat(void)
 			len == 7);
 
 	if (failed == prefailed)
-		printf("\n >>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+		printf("\n " ANSI_COLOR_GREEN ">>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<" ANSI_COLOR_RESET "\n");
 	else
-		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+		printf("\n " ANSI_COLOR_RED "<<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" ANSI_COLOR_RESET "\n");
 }
 
 static void test_ft_toupper(void)
@@ -349,9 +349,9 @@ static void test_ft_toupper(void)
 	print_test("  ft_toupper(21) ? 21", ft_toupper(21) == 21);
 
 	if (failed == prefailed)
-		printf("\n >>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+		printf("\n " ANSI_COLOR_GREEN ">>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<" ANSI_COLOR_RESET "\n");
 	else
-		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+		printf("\n " ANSI_COLOR_RED "<<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" ANSI_COLOR_RESET "\n");
 }
 
 static void test_ft_tolower(void)
@@ -366,9 +366,9 @@ static void test_ft_tolower(void)
 	print_test("  ft_tolower(21) ? 21", ft_tolower(21) == 21);
 
 	if (failed == prefailed)
-		printf("\n >>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+		printf("\n " ANSI_COLOR_GREEN ">>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<" ANSI_COLOR_RESET "\n");
 	else
-		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+		printf("\n " ANSI_COLOR_RED "<<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" ANSI_COLOR_RESET "\n");
 }
 
 static void	test_ft_strchr(void)
@@ -386,9 +386,9 @@ static void	test_ft_strchr(void)
 	print_test("  ft_strchr(s, 't') ? NULL", ft_strchr(s, 't') == NULL);
 
 	if (failed == prefailed)
-		printf("\n >>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+		printf("\n " ANSI_COLOR_GREEN ">>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<" ANSI_COLOR_RESET "\n");
 	else
-		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+		printf("\n " ANSI_COLOR_RED "<<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" ANSI_COLOR_RESET "\n");
 }
 
 static void	test_ft_strrchr(void)
@@ -406,9 +406,9 @@ static void	test_ft_strrchr(void)
 	print_test("  ft_strrchr(s, 't') ? NULL", ft_strrchr(s, 't') == NULL);
 
 	if (failed == prefailed)
-		printf("\n >>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+		printf("\n " ANSI_COLOR_GREEN ">>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<" ANSI_COLOR_RESET "\n");
 	else
-		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+		printf("\n " ANSI_COLOR_RED "<<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" ANSI_COLOR_RESET "\n");
 }
 
 static void	test_ft_strncmp(void)
@@ -425,9 +425,9 @@ static void	test_ft_strncmp(void)
 			getsign(ft_strncmp("test", "testing", 7)) == getsign(strncmp("test", "testing", 7)));
 
 	if (failed == prefailed)
-		printf("\n >>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+		printf("\n " ANSI_COLOR_GREEN ">>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<" ANSI_COLOR_RESET "\n");
 	else
-		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+		printf("\n " ANSI_COLOR_RED "<<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" ANSI_COLOR_RESET "\n");
 }
 
 static void	test_ft_memchr(void)
@@ -449,9 +449,9 @@ static void	test_ft_memchr(void)
 			ft_memchr("abcde", '\0', 6) == memchr("abcde", '\0', 6));
 
 	if (failed == prefailed)
-		printf("\n >>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+		printf("\n " ANSI_COLOR_GREEN ">>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<" ANSI_COLOR_RESET "\n");
 	else
-		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+		printf("\n " ANSI_COLOR_RED "<<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" ANSI_COLOR_RESET "\n");
 }
 
 static void	test_ft_memcmp(void)
@@ -471,9 +471,9 @@ static void	test_ft_memcmp(void)
 			getsign(ft_memcmp("xxxxx", "abcde", 1)) == getsign(memcmp("xxxxx", "abcde", 1)));
 
 	if (failed == prefailed)
-		printf("\n >>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+		printf("\n " ANSI_COLOR_GREEN ">>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<" ANSI_COLOR_RESET "\n");
 	else
-		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+		printf("\n " ANSI_COLOR_RED "<<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" ANSI_COLOR_RESET "\n");
 }
 
 static void	test_ft_strnstr(void)
@@ -493,9 +493,9 @@ static void	test_ft_strnstr(void)
 			ft_strnstr(s, "a", strlen(s)) == &s[0]);
 
 	if (failed == prefailed)
-		printf("\n >>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+		printf("\n " ANSI_COLOR_GREEN ">>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<" ANSI_COLOR_RESET "\n");
 	else
-		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+		printf("\n " ANSI_COLOR_RED "<<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" ANSI_COLOR_RESET "\n");
 }
 
 // static void	test_ft_NAME(void)
@@ -507,9 +507,9 @@ static void	test_ft_strnstr(void)
 // 	// tests
 // 
 // 	if (failed == prefailed)
-// 		printf("\n >>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+// 		printf("\n " ANSI_COLOR_GREEN ">>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<" ANSI_COLOR_RESET "\n");
 // 	else
-// 		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+// 		printf("\n " ANSI_COLOR_RED "<<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" ANSI_COLOR_RESET "\n");
 // }
 
 /* =================== MAIN ==================== */
