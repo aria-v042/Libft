@@ -20,6 +20,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 
 	while (len && *big)
 	{
+		b = big;
 		l = little;
 		ext = 0;
 		while ((len - ext) && *b == *l)
@@ -31,7 +32,6 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 		if (!l)
 			return ((char *)big);
 		big++;
-		b = big;
 		len--;
 	}
 	return (NULL);
