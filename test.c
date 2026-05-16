@@ -53,7 +53,7 @@ static void	print_test(const char *test, int pass)
 	else
 	{
 		failed++;
-		printf(ANSI_COLOR_RED "  [FAIL]  " ANSI_COLOR_RESET "%s\n", test);
+		printf(ANSI_COLOR_RED " [FAIL] %s\n" ANSI_COLOR_RESET, test);
 	}
 }
 
@@ -68,7 +68,13 @@ static void	print_summary(void)
 	printf("  Failed	" ANSI_COLOR_RED "%d" ANSI_COLOR_RESET "/%d	tests\n", failed, tested);
 	printf("\n");
 	if (failed == 0)
-		printf(ANSI_COLOR_GREEN "  All tests were successful!" ANSI_COLOR_RESET "\n\n");
+	{
+		printf(ANSI_COLOR_GREEN "  Passed all tests! :3" ANSI_COLOR_RESET "\n\n");
+	}
+	else
+	{
+		printf(ANSI_COLOR_RED "  Failed some tests :(" ANSI_COLOR_RESET "\n\n");
+	}
 }
 
 /* ============ AUXILIARY FUNCTIONS =========== */
