@@ -497,6 +497,7 @@ static void	test_ft_strnstr(void)
 			ft_strnstr(s, "xyz", strlen(s)) == NULL);
 	print_test("  ft_strnstr(s, \"a\", 12) == &s[0]",
 			ft_strnstr(s, "a", strlen(s)) == &s[0]);
+	// [TODO]
 
 	if (failed == prefailed)
 		printf("\n " ANSI_COLOR_GREEN ">>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<" ANSI_COLOR_RESET "\n");
