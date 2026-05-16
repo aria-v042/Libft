@@ -485,25 +485,29 @@ static void	test_ft_memcmp(void)
 static void	test_ft_strnstr(void)
 {
 	int		prefailed = failed;
-	char	s[] = "abcabcdabcde";
+	char	s[10];
 
 	print_header("ft_strnstr");
 
 	// tests
-	print_call("	  s[] = \"abcabcdabcde\" (12)");
-	print_test("  ft_strnstr(s, \"x\", 12) == NULL",
-			ft_strnstr(s, "x", strlen(s)) == NULL);
-	print_test("  ft_strnstr(s, \"xyz\", 12) == NULL",
-			ft_strnstr(s, "xyz", strlen(s)) == NULL);
-	print_test("  ft_strnstr(s, \"a\", 12) == &s[0]",
-			ft_strnstr(s, "a", strlen(s)) == &s[0]);
-	print_test("  ft_strnstr(s, \"abc\", 12) == &s[0]",
-			ft_strnstr(s, "abc", strlen(s)) == &s[0]);
-	print_test("  ft_strnstr(s, \"abcd\", 12) == &s[3]",
-			ft_strnstr(s, "abcd", strlen(s)) == &s[3]);
-	print_test("  ft_strnstr(s, \"abcde\", 12) == &s[7]",
-			ft_strnstr(s, "abcde", strlen(s)) == &s[7]);
-	
+	strlcpy(s, "abc", sizeof(s));
+	print_test("  ft_strnstr(\"abc\", \"xyz\", 0)",
+			ft_strnstr(s, "xyz", 0) == NULL);
+	strlcpy(s, "abc", sizeof(s));
+	print_test("  ft_strnstr(\"abc\", \"xyz\", 1) == NULL",
+			ft_strnstr(s, "xyz", 1) == NULL);
+	strlcpy(s, "", sizeof(s));
+	print_test("  ft_strnstr(\"\", \"\", 0)",
+			ft_strnstr(s, "", 0) == &s);
+	strlcpy(s, "", sizeof(s));
+	print_test("  ft_strnstr(\"\", \"\", 1)",
+			ft_strnstr(s, "", 1) == &s);
+	strlcpy(s, "", sizeof(s));
+	print_test("  ft_strnstr(\"\", \"test\", 0)",
+			ft_strnstr(s, "test", 0) == &s);
+	strlcpy(s, "", sizeof(s));
+	print_test("  ft_strnstr(\"\", \"test\", 1)",
+			ft_strnstr(s, "test", 1) == &s);
 	// [TODO]
 
 	if (failed == prefailed)
