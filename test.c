@@ -468,6 +468,24 @@ static void	test_ft_memcmp(void)
 		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
 }
 
+static void	test_ft_strnstr(void)
+{
+	int		prefailed = failed;
+	char	big[] = "abcabcdabcde";
+
+	print_header("ft_strnstr");
+
+	// tests
+	print_call("		big[] = \"abcabcdabcde\"");
+	print_test("  ft_strnstr(big, 'x', strlen(big))",
+			ft_strnstr(big, 'x', strlen(big)) == strnstr(big, 'x', strlen(big)));
+
+	if (failed == prefailed)
+		printf("\n >>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+	else
+		printf("\n <<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+}
+
 // static void	test_ft_NAME(void)
 // {
 // 	int prefailed = failed;
@@ -511,6 +529,7 @@ int	main(void)
 	test_ft_strncmp();
 	test_ft_memchr();
 	test_ft_memcmp();
+	test_ft_strnstr();
 	// SUMMARY:
 	print_summary();
 	return (1);
