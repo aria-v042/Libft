@@ -497,6 +497,13 @@ static void	test_ft_strnstr(void)
 			ft_strnstr(s, "xyz", strlen(s)) == NULL);
 	print_test("  ft_strnstr(s, \"a\", 12) == &s[0]",
 			ft_strnstr(s, "a", strlen(s)) == &s[0]);
+	print_test("  ft_strnstr(s, \"abc\", 12) == &s[0]",
+			ft_strnstr(s, "abc", strlen(s)) == &s[0]);
+	print_test("  ft_strnstr(s, \"abcd\", 12) == &s[3]",
+			ft_strnstr(s, "abcd", strlen(s)) == &s[3]);
+	print_test("  ft_strnstr(s, \"abcde\", 12) == &s[7]",
+			ft_strnstr(s, "abcde", strlen(s)) == &s[7]);
+	
 	// [TODO]
 
 	if (failed == prefailed)
