@@ -476,9 +476,9 @@ static void	test_ft_strnstr(void)
 	print_header("ft_strnstr");
 
 	// tests
-	print_call("		big[] = \"abcabcdabcde\"");
-	print_test("  ft_strnstr(big, 'x', strlen(big))",
-			ft_strnstr(big, 'x', strlen(big)) == strnstr(big, 'x', strlen(big)));
+	print_call("	  big[] = \"abcabcdabcde\"");
+	print_test("  ft_strnstr(big, \"x\", strlen(big)) == NULL",
+			ft_strnstr(big, "x", strlen(big)) == NULL);
 
 	if (failed == prefailed)
 		printf("\n >>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
