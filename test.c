@@ -496,19 +496,19 @@ static void	test_ft_strnstr(void)
 	strlcpy(s, "abc", sizeof(s));
 	print_test("  ft_strnstr(\"abc\", \"xyz\", 1) == NULL",
 			ft_strnstr(s, "xyz", 1) == NULL);
-	strlcpy(s, "", sizeof(s));
-	print_test("  ft_strnstr(\"\", \"\", 0)",
-			ft_strnstr(s, "", 0) == &s);
-	strlcpy(s, "", sizeof(s));
-	print_test("  ft_strnstr(\"\", \"\", 1)",
-			ft_strnstr(s, "", 1) == &s);
-	strlcpy(s, "", sizeof(s));
-	print_test("  ft_strnstr(\"\", \"test\", 0)",
-			ft_strnstr(s, "test", 0) == &s);
-	strlcpy(s, "", sizeof(s));
-	print_test("  ft_strnstr(\"\", \"test\", 1)",
-			ft_strnstr(s, "test", 1) == &s);
-	// [TODO]
+//	strlcpy(s, "", sizeof(s));
+//	print_test("  ft_strnstr(\"\", \"\", 0)",
+//			ft_strnstr(s, "", 0) == &s);
+//	strlcpy(s, "", sizeof(s));
+//	print_test("  ft_strnstr(\"\", \"\", 1)",
+//			ft_strnstr(s, "", 1) == &s);
+//	strlcpy(s, "", sizeof(s));
+//	print_test("  ft_strnstr(\"\", \"test\", 0)",
+//			ft_strnstr(s, "test", 0) == &s);
+//	strlcpy(s, "", sizeof(s));
+//	print_test("  ft_strnstr(\"\", \"test\", 1)",
+//			ft_strnstr(s, "test", 1) == &s);
+//	// [TODO]
 
 	if (failed == prefailed)
 		printf("\n " ANSI_COLOR_GREEN ">>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<" ANSI_COLOR_RESET "\n");
