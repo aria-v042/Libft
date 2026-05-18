@@ -17,7 +17,7 @@ int	ft_atoi(const char *s)
 	int	ifroma;
 	int	sign;
 
-	while (*s == ' ' && (*s >= 9 && *s <= 13))
+	while (*s == ' ' || (*s > 8 && *s < 14))
 	{
 		s++;
 	}
@@ -32,7 +32,7 @@ int	ft_atoi(const char *s)
 	while (*s >= '0' && *s <= '9')
 	{
 		ifroma *= 10;
-		ifroma += (*s - 48);
+		ifroma += *s - '0';
 		s++;
 	}
 	return (ifroma * sign);
