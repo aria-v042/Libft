@@ -550,10 +550,63 @@ static void	test_ft_strnstr(void)
 	print_test("  ft_strnstr(\"aaxx\", \"xx\", 4)",
 			ft_strnstr(s, "xx", 4) == &s[2]);
 
-	//	test N
-	//	ft_strlcpy(s, "big", sizeof(s));
-	//	print_test("  ft_strnstr(\"big\", \"little\", 0)",
-	//			ft_strnstr(s, "little", 0) == &s[0]);
+	if (failed == prefailed)
+		printf("\n " ANSI_COLOR_GREEN ">>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<" ANSI_COLOR_RESET "\n");
+	else
+		printf("\n " ANSI_COLOR_RED "<<< FAILURE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" ANSI_COLOR_RESET "\n");
+}
+
+static void	test_ft_atoi(void)
+{
+	int prefailed = failed;
+
+	print_header("ft_atoi");
+
+	// test 1
+	print_test("ft_atoi(\" \\t\\v\\n\\r\\f123\")",
+			ft_atoi(" \t\v\n\r\f123") == atoi(" \t\v\n\r\f123"));
+	// test 2
+	print_test("ft_atoi(\"0\")",
+			ft_atoi("0") == atoi("0"));
+	// test 3
+	print_test("ft_atoi(\"-1000043\")",
+			ft_atoi("-1000043") == atoi("-1000043"));
+	// test 4
+	print_test("ft_atoi(\"+00000000000000123\")",
+			ft_atoi("+00000000000000123") == atoi("+00000000000000123"));
+	// test 5
+	print_test("ft_atoi(\"    123\")",
+			ft_atoi("    123") == atoi("    123"));
+	// test 6
+	print_test("ft_atoi(\"--123\")",
+			ft_atoi("--123") == atoi("--123"));
+	// test 7
+	print_test("ft_atoi(\"-+123\")",
+			ft_atoi("-+123") == atoi("-+123"));
+	// test 8
+	print_test("ft_atoi(\"+-123\")",
+			ft_atoi("+-123") == atoi("+-123"));
+	// test 9
+	print_test("ft_atoi(\"++123\")",
+			ft_atoi("++123") == atoi("++123"));
+	// test 10
+	print_test("ft_atoi(\"- 123\")",
+			ft_atoi("- 123") == atoi("- 123"));
+	// test 11
+	print_test("ft_atoi(\"+ 123\")",
+			ft_atoi("+ 123") == atoi("+ 123"));
+	// test 12
+	print_test("ft_atoi(\"+\\n123\")",
+			ft_atoi("+\n123") == atoi("+\n123"));
+	// test 13
+	print_test("ft_atoi(\"1209\")",
+			ft_atoi("1209") == atoi("1209"));
+	// test 14
+	print_test("ft_atoi(\"12/3\")",
+			ft_atoi("12/3") == atoi("12/3"));
+	// test 15
+	print_test("ft_atoi(\"12;3\")",
+			ft_atoi("12;3") == atoi("12;3"));
 
 	if (failed == prefailed)
 		printf("\n " ANSI_COLOR_GREEN ">>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<" ANSI_COLOR_RESET "\n");
@@ -607,6 +660,7 @@ int	main(void)
 	test_ft_memchr();
 	test_ft_memcmp();
 	test_ft_strnstr();
+	test_ft_atoi();
 	// SUMMARY:
 	print_summary();
 	return (1);
