@@ -38,7 +38,7 @@ gopepper: all
 	$(CC) $(CFLAGS) $(GOPEPPER_C) $(NAME) -o $(T_OUT)
 
 debug: all
-	$(CC) $(CFLAGS) -g $(DEBUG_C) $(NAME) -o $(D_OUT) && make clean
+	$(CC) $(CFLAGS) -g $(DEBUG_C) $(NAME) -o $(D_OUT) && make fclean
 
 clean:
 	rm -f $(OBJS)
