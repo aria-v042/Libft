@@ -555,8 +555,6 @@ static void	test_ft_strnstr(void)
 	//	print_test("  ft_strnstr(\"big\", \"little\", 0)",
 	//			ft_strnstr(s, "little", 0) == &s[0]);
 
-//	// [TODO]
-
 	if (failed == prefailed)
 		printf("\n " ANSI_COLOR_GREEN ">>> SUCCESS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<" ANSI_COLOR_RESET "\n");
 	else
