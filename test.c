@@ -663,5 +663,5 @@ int	main(void)
 	test_ft_atoi();
 	// SUMMARY:
 	print_summary();
-	return (1);
+	return (0);
 }
