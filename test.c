@@ -489,28 +489,72 @@ static void	test_ft_strnstr(void)
 
 	print_header("ft_strnstr");
 
-	// tests
-	strlcpy(s, "abc", sizeof(s));
+	// test 1
+	ft_strlcpy(s, "abc", sizeof(s));
 	print_test("  ft_strnstr(\"abc\", \"xyz\", 0)",
 			ft_strnstr(s, "xyz", 0) == NULL);
-	strlcpy(s, "abc", sizeof(s));
-	print_test("  ft_strnstr(\"abc\", \"xyz\", 1) == NULL",
+	// test 2
+	ft_strlcpy(s, "abc", sizeof(s));
+	print_test("  ft_strnstr(\"abc\", \"xyz\", 1)",
 			ft_strnstr(s, "xyz", 1) == NULL);
-	strlcpy(s, "", sizeof(s));
+	// test 3
+	ft_strlcpy(s, "", sizeof(s));
 	print_test("  ft_strnstr(\"\", \"\", 0)",
 			ft_strnstr(s, "", 0) == &s[0]);
-	strlcpy(s, "", sizeof(s));
+	// test 4
+	ft_strlcpy(s, "", sizeof(s));
 	print_test("  ft_strnstr(\"\", \"\", 1)",
 			ft_strnstr(s, "", 1) == &s[0]);
-	strlcpy(s, "", sizeof(s));
+	// test 5
+	ft_strlcpy(s, "", sizeof(s));
 	print_test("  ft_strnstr(\"\", \"test\", 0)",
-			ft_strnstr(s, "test", 0) == &s[0]);
-	strlcpy(s, "", sizeof(s));
+			ft_strnstr(s, "test", 0) == NULL);
+	// test 6
+	ft_strlcpy(s, "", sizeof(s));
 	print_test("  ft_strnstr(\"\", \"test\", 4)",
-			ft_strnstr(s, "test", 4) == &s[0]);
-//	strlcpy(s, "big", sizeof(s));
-//	print_test("  ft_strnstr(\"big\", \"little\", 0)",
-//			ft_strnstr(s, "little", 0) == &s[0]);
+			ft_strnstr(s, "test", 4) == NULL);
+	//	test 7
+	ft_strlcpy(s, "test", sizeof(s));
+	print_test("  ft_strnstr(\"test\", \"\", 0)",
+			ft_strnstr(s, "", 0) == &s[0]);
+	//	test 8
+	ft_strlcpy(s, "test", sizeof(s));
+	print_test("  ft_strnstr(\"test\", \"\", 2)",
+			ft_strnstr(s, "", 2) == &s[0]);
+	//	test 9
+	ft_strlcpy(s, "xxabcdef", sizeof(s));
+	print_test("  ft_strnstr(\"xxabcdef\", \"abc\", 2)",
+			ft_strnstr(s, "abc", 2) == NULL);
+	//	test 14
+	ft_strlcpy(s, "xxabcdef", sizeof(s));
+	print_test("  ft_strnstr(\"xxabcdef\", \"abc\", 4)",
+			ft_strnstr(s, "abc", 4) == NULL);
+
+	//	test 11
+	ft_strlcpy(s, "abc", sizeof(s));
+	print_test("  ft_strnstr(\"abc\", \"abcdef\", 3)",
+			ft_strnstr(s, "abcdef", 3) == NULL);
+
+	//	test 12
+	ft_strlcpy(s, "aaxx", sizeof(s));
+	print_test("  ft_strnstr(\"aaxx\", \"xx\", 2)",
+			ft_strnstr(s, "xx", 2) == NULL);
+
+	//	test 13
+	ft_strlcpy(s, "aaxx", sizeof(s));
+	print_test("  ft_strnstr(\"aaxx\", \"xx\", 3)",
+			ft_strnstr(s, "xx", 3) == NULL);
+
+	//	test 14
+	ft_strlcpy(s, "aaxx", sizeof(s));
+	print_test("  ft_strnstr(\"aaxx\", \"xx\", 4)",
+			ft_strnstr(s, "xx", 4) == &s[2]);
+
+	//	test N
+	//	ft_strlcpy(s, "big", sizeof(s));
+	//	print_test("  ft_strnstr(\"big\", \"little\", 0)",
+	//			ft_strnstr(s, "little", 0) == &s[0]);
+
 //	// [TODO]
 
 	if (failed == prefailed)
