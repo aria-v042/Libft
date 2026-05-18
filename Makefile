@@ -32,10 +32,10 @@ $(NAME): $(OBJS)
 	$(CC) $(CFlAGS) -c $< -o $@
 
 test: all
-	$(CC) $(CFLAGS) $(TEST_C) $(NAME) -o $(T_OUT)
+	$(CC) $(CFLAGS) $(TEST_C) $(NAME) -o $(T_OUT) && make fclean
 
 gopepper: all
-	$(CC) $(CFLAGS) $(GOPEPPER_C) $(NAME) -o $(T_OUT)
+	$(CC) $(CFLAGS) $(GOPEPPER_C) $(NAME) -o $(T_OUT) && make fclean
 
 debug: all
 	$(CC) $(CFLAGS) -g $(DEBUG_C) $(NAME) -o $(D_OUT) && make fclean
