@@ -6,7 +6,7 @@
 #    By: frodrig2 <frodrig2@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/20 21:45:22 by frodrig2          #+#    #+#              #
-#    Updated: 2026/04/23 17:50:18 by frodrig2         ###   ########.fr        #
+#    Updated: 2026/05/18 23:11:54 by frodrig2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,8 @@ OBJS = $(SRCS:.c=.o)
 TEST_C = test.c
 GOPEPPER_C = gopepper.c
 T_OUT = runtests
+DEBUG_C = debug.c
+D_OUT = debug
 
 all: $(NAME)
 
@@ -35,6 +37,9 @@ test: all
 gopepper: all
 	$(CC) $(CFLAGS) $(GOPEPPER_C) $(NAME) -o $(T_OUT)
 
+debug: all
+	$(CC) $(CFLAGS) -g $(DEBUG_C) $(NAME) -o $(D_OUT) && make clean
+
 clean:
 	rm -f $(OBJS)
 
@@ -43,5 +48,8 @@ fclean: clean
 
 tclean: fclean
 	rm -f $(T_OUT)
+
+dclean: fclean
+	rm -f $(D_OUT)
 
 re: fclean all
