@@ -6,7 +6,7 @@
 /*   By: frodrig2 <frodrig2@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 22:23:55 by frodrig2          #+#    #+#             */
-/*   Updated: 2026/05/19 02:37:38 by frodrig2         ###   ########.fr       */
+/*   Updated: 2026/05/19 19:49:34 by frodrig2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,6 @@ char	*ft_strdup(const char *s);
 /* ==== ADDITIONAL FUNCTIONS ==== */
 
 char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strjoin(char const *s1, char const *s2);
 
 #endif
