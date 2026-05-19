@@ -6,7 +6,7 @@
 /*   By: frodrig2 <frodrig2@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 22:23:55 by frodrig2          #+#    #+#             */
-/*   Updated: 2026/05/19 01:26:16 by frodrig2         ###   ########.fr       */
+/*   Updated: 2026/05/19 02:37:38 by frodrig2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <stddef.h>
 # include <stdlib.h>
+
+/* ==== LIBC FUNCTIONS ==== */
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -40,5 +42,9 @@ char	*ft_strnstr(const char *big, const char *little, size_t len);
 int		ft_atoi(const char *s);
 void	*ft_calloc(size_t n, size_t size);
 char	*ft_strdup(const char *s);
+
+/* ==== ADDITIONAL FUNCTIONS ==== */
+
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 #endif
