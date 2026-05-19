@@ -15,13 +15,10 @@
 
 int	main(void)
 {
-	int	*array;
-	int i;
+	char *str = "abcd";
 
-	array = ft_calloc(10, sizeof(long));
-	for (i = 0; i < 10; i++)
-	{
-		printf("%d\n", array[i]);
-	}
+	printf("%s", str);
+	str = ft_strtrim(str, "");
+	printf("%s", str);
 	return (0);
 }
