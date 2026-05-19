@@ -16,10 +16,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*dup;
 
-	dup = ft_calloc((len + 1, sizeof(char));
+	dup = ft_calloc(len + 1, sizeof(char));
 	if (!dup)
 		return (NULL);
-	if (start <= ft_strlen(s) - 1)
+	if (start <= ft_strlen(s))
 		ft_strlcpy(dup, s + start, len);
 	return (dup);
 }
