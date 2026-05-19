@@ -16,20 +16,20 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*s2;
 	size_t	i;
-	size_t	trimlen;
-	size_t	trimrlen;
-	size_t	size;
+	size_t	j;
 
+	if (!s1 || !set)
+		return (ft_strdup(s1));
 	i = 0;
-	while (ft_strchr(set, s1 + i++))
-		trimlen++;
-	i = ft_strlen(s1);
-	while (ft_strrchr(set, s1 + --i))
-		trimrlen++;
-	size = ft_strlen(s1) - trimlen - trimrlen + 1;
-	s2 = (char *)malloc(size * sizeof(char));
+	while (*(s1 + i) && ft_strchr(set, *(s1 + i)))
+		i++;
+	j = ft_strlen(s1) - 1;
+	while (*(s1 + j) && j > i && ft_strchr(set, *(s1 + j)))
+		j--;
+	s2 = (char *)malloc((j - i + 2) * sizeof(char));
 	if (!s2)
 		return (NULL);
-	ft_strlcpy(s2, s1 + trimlen - 1, size - trimlen);
+	ft_strlcpy(s2, s1 + i, (j - i + 2));
 	return (s2);
-}
+} // "  ", " " 
+  //  0123   01
