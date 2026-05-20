@@ -40,14 +40,14 @@ char	*ft_itoa(int n)
 	long long	big;
 	size_t		len;
 
-	big = (long long) n;
 	len = ft_numlen(n);
 	aoti = (char *)malloc(sizeof(char) * (len + 1));
 	if (!aoti)
 		return (NULL);
 	aoti[len--] = '\0';
-	if (big == 0)
+	if (n == 0)
 		return (*aoti = '0', aoti);
+	big = (long long) n;
 	if (big < 0)
 	{
 		*aoti = '-';
