@@ -6,7 +6,7 @@
 /*   By: frodrig2 <frodrig2@students.42porto.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 23:56:55 by frodrig2          #+#    #+#             */
-/*   Updated: 2026/05/20 02:48:50 by frodrig2         ###   ########.fr       */
+/*   Updated: 2026/05/20 02:51:20 by frodrig2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ size_t	ft_wordlen(const char *s, char c)
 
 char	**ft_freewords(char **words, size_t w)
 {
-	while (w)
-		free(words[w--]);
+	while (w--)
+		free(words[w]);
 	free(words);
 	return (NULL);
 }
