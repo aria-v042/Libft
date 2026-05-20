@@ -12,7 +12,7 @@
 
 NAME = libft.a
 CC = cc
-CFlAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 SRCS_DIR = .
 SRCS = $(shell find $(SRCS_DIR) -name 'ft_*.c')
 OBJS_DIR = .
