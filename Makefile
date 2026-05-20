@@ -17,10 +17,10 @@ SRCS_DIR = .
 SRCS = $(shell find $(SRCS_DIR) -name 'ft_*.c')
 OBJS_DIR = .
 OBJS = $(SRCS:.c=.o)
-TEST_C = test.c
+-TEST_C = test.c
 GOPEPPER_C = gopepper.c
 T_OUT = runtests
-DEBUG_C = debug.c
++DEBUG_C ?= test.c
 D_OUT = debug
 
 all: $(NAME)
@@ -38,7 +38,8 @@ gopepper: all
 	$(CC) $(CFLAGS) $(GOPEPPER_C) $(NAME) -o $(T_OUT) && make fclean
 
 debug: all
-	$(CC) $(CFLAGS) -g $(DEBUG_C) $(NAME) -o $(D_OUT) && make fclean
+-	$(CC) $(CFLAGS) -g $(TEST_C) $(NAME) -o $(D_OUT) && make fclean
++	$(CC) $(CFLAGS) -g $(DEBUG_C) $(NAME) -o $(D_OUT) && make fclean
 
 clean:
 	rm -f $(OBJS)
