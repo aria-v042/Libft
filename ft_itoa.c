@@ -14,13 +14,13 @@
 
 static size_t	ft_numlen(int n)
 {
-	size_t	count;
-	long	big;
+	size_t		count;
+	long long	big;
 
 	count = 0;
 	if (n == 0)
 		return (++count);
-	big = (long) n;
+	big = (long long) n;
 	if (big < 0)
 	{
 		count++;
@@ -36,11 +36,11 @@ static size_t	ft_numlen(int n)
 
 char	*ft_itoa(int n)
 {
-	char	*aoti;
-	long	big;
-	size_t	len;
+	char		*aoti;
+	long long	big;
+	size_t		len;
 
-	big = (long) n;
+	big = (long long) n;
 	len = ft_numlen(n);
 	aoti = (char *)malloc(sizeof(char) * (len + 1));
 	if (!aoti)
