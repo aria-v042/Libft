@@ -6,13 +6,13 @@
 /*   By: frodrig2 <frodrig2@students.42porto.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 23:56:55 by frodrig2          #+#    #+#             */
-/*   Updated: 2026/05/20 02:20:58 by frodrig2         ###   ########.fr       */
+/*   Updated: 2026/05/20 02:33:03 by frodrig2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_wordcount(const char *s, char c)
+unsigned int	ft_wordcount(const char *s, char c)
 {
 	unsigned int	wcount;
 	unsigned int	word;
