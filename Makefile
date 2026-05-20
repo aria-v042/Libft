@@ -1,7 +1,7 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
+#    $(MAKE)file                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: frodrig2 <frodrig2@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
@@ -32,14 +32,14 @@ $(NAME): $(OBJS)
 	$(CC) $(CFlAGS) -c $< -o $@
 
 test: all
-	$(CC) $(CFLAGS) $(TEST_C) $(NAME) -o $(T_OUT) && make fclean
+	$(CC) $(CFLAGS) $(TEST_C) $(NAME) -o $(T_OUT) && $(MAKE) fclean
 
 gopepper: all
-	$(CC) $(CFLAGS) $(GOPEPPER_C) $(NAME) -o $(T_OUT) && make fclean
+	$(CC) $(CFLAGS) $(GOPEPPER_C) $(NAME) -o $(T_OUT) && $(MAKE) fclean
 
 debug: all
--	$(CC) $(CFLAGS) -g $(TEST_C) $(NAME) -o $(D_OUT) && make fclean
-+	$(CC) $(CFLAGS) -g $(DEBUG_C) $(NAME) -o $(D_OUT) && make fclean
+-	$(CC) $(CFLAGS) -g $(TEST_C) $(NAME) -o $(D_OUT) && $(MAKE) fclean
++	$(CC) $(CFLAGS) -g $(DEBUG_C) $(NAME) -o $(D_OUT) && $(MAKE) fclean
 
 clean:
 	rm -f $(OBJS)
