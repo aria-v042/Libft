@@ -31,5 +31,4 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (NULL);
 	ft_strlcpy(s2, s1 + i, (j - i + 2));
 	return (s2);
-} // "  ", " " 
-  //  0123   01
+}
