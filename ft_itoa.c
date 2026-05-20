@@ -50,7 +50,7 @@ char	*ft_itoa(int n)
 		return (*aoti = '0', aoti);
 	if (big < 0)
 	{
-		*aoti++ = '-';
+		*aoti = '-';
 		big *= -1;
 	}
 	while (big > 0)
@@ -60,3 +60,14 @@ char	*ft_itoa(int n)
 	}
 	return (aoti);
 }
+//
+//#include <stdio.h>
+//
+//int	main(void)
+//{
+//	char	*str;
+//
+//	str = ft_itoa(-10004);
+//	printf("str = %s\n", str);
+//	return (0);
+//}
