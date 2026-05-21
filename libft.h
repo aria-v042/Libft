@@ -6,7 +6,7 @@
 /*   By: frodrig2 <frodrig2@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 22:23:55 by frodrig2          #+#    #+#             */
-/*   Updated: 2026/05/21 02:25:48 by frodrig2         ###   ########.fr       */
+/*   Updated: 2026/05/21 02:37:30 by frodrig2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,6 @@ char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
+void	ft_putchar_fd(char c, int fd);
 
 #endif
