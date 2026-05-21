@@ -23,8 +23,6 @@ GOPEPPER = gopepper.c
 T_OUT = runtests
 D_OUT = debug
 
-.PHONY: all clean fclean re test gopepper debug tclean dclean
-
 all: $(NAME)
 
 $(NAME): $(OBJS)
@@ -59,3 +57,5 @@ dclean: fclean
 	rm -f $(D_OUT)
 
 re: fclean all
+
+.PHONY: all clean fclean re test gopepper debug tclean dclean
