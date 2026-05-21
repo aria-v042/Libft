@@ -22,3 +22,4 @@ void	ft_putnbr_fd(int n, int fd)
 	ft_putstr_fd(s, fd);
 	free(s);
 }
+// TODO - can't allocate memory
