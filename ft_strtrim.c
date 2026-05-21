@@ -18,15 +18,19 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	i;
 	size_t	j;
 
-	if (!s1 || !set)
+	if (!s1)
+		return (NULL);
+	if (!set)
 		return (ft_strdup(s1));
 	i = 0;
-	while (*(s1 + i) && ft_strchr(set, *(s1 + i)))
+	while (s1[i] && ft_strchr(set, s1[i]))
 		i++;
+	if (!s1[i])
+		return (ft_strdup(""));
 	j = ft_strlen(s1) - 1;
-	while (*(s1 + j) && j > i && ft_strchr(set, *(s1 + j)))
+	while (j > i && ft_strchr(set, s1[j]))
 		j--;
-	s2 = (char *)malloc((j - i + 2) * sizeof(char));
+	s2 = (char *)malloc(j - i + 2);
 	if (!s2)
 		return (NULL);
 	ft_strlcpy(s2, s1 + i, (j - i + 2));
