@@ -20,10 +20,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	srclen = ft_strlen(src);
 	dstlen = ft_strlen(dst);
 	if (dstlen >= size)
-	{
-		dstlen = size;
 		return (size + srclen);
-	}
 	if (dstlen + srclen < size)
 	{
 		ft_memcpy(dst + dstlen, src, srclen + 1);
