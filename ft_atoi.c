@@ -12,12 +12,18 @@
 
 #include "libft.h"
 
+static int	ft_isspace(int c)
+{
+	return (c == ' ' || c == '\t' || c == '\n'
+		|| c == '\v' || c == '\f' || c == '\r');
+}
+
 int	ft_atoi(const char *s)
 {
 	int	iota;
 	int	sign;
 
-	while (*s == ' ' || (*s > 8 && *s < 14))
+	while (ft_isspace(*s))
 	{
 		s++;
 	}
