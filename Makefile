@@ -17,11 +17,13 @@ SRCS_DIR = .
 SRCS = $(shell find $(SRCS_DIR) -name 'ft_*.c')
 OBJS_DIR = .
 OBJS = $(SRCS:.c=.o)
--TEST_C = test.c
-GOPEPPER_C = gopepper.c
+TEST = test.c
+DEBUG ?= $(or $(filter %.c, $(MAKECMDGOALS)), $(TEST))
+GOPEPPER = gopepper.c
 T_OUT = runtests
-+DEBUG_C ?= test.c
 D_OUT = debug
+
+.PHONY: all clean fclean re test gopepper debug tclean dclean
 
 all: $(NAME)
 
@@ -29,17 +31,20 @@ $(NAME): $(OBJS)
 	ar -rcs $(NAME) $(OBJS)
 
 %.o: %.c
-	$(CC) $(CFlAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
+
+ifneq ($(filter %.c, $(MAKECMDGOALS)),)
+%.c: ;
+endif
 
 test: all
-	$(CC) $(CFLAGS) $(TEST_C) $(NAME) -o $(T_OUT) && $(MAKE) fclean
+	$(CC) $(CFLAGS) $(TEST) $(NAME) -o $(T_OUT) && $(MAKE) fclean
 
 gopepper: all
-	$(CC) $(CFLAGS) $(GOPEPPER_C) $(NAME) -o $(T_OUT) && $(MAKE) fclean
+	$(CC) $(CFLAGS) $(GOPEPPER) $(NAME) -o $(T_OUT) && $(MAKE) fclean
 
 debug: all
--	$(CC) $(CFLAGS) -g $(TEST_C) $(NAME) -o $(D_OUT) && $(MAKE) fclean
-+	$(CC) $(CFLAGS) -g $(DEBUG_C) $(NAME) -o $(D_OUT) && $(MAKE) fclean
+	$(CC) $(CFLAGS) -g $(DEBUG) $(NAME) -o $(D_OUT) && $(MAKE) fclean
 
 clean:
 	rm -f $(OBJS)
