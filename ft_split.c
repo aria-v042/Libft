@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-static unsigned int	ft_wordcount(const char *s, char c)
+static size_t	ft_wordcount(const char *s, char c)
 {
-	unsigned int	wcount;
-	unsigned int	word;
+	size_t	wcount;
+	int		word;
 
 	wcount = 0;
 	word = 0;
