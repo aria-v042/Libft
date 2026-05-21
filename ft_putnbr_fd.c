@@ -6,7 +6,7 @@
 /*   By: frodrig2 <frodrig2@students.42porto.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/21 04:47:39 by frodrig2          #+#    #+#             */
-/*   Updated: 2026/05/21 04:52:50 by frodrig2         ###   ########.fr       */
+/*   Updated: 2026/05/21 04:58:10 by frodrig2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,11 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	ft_putstr_fd(ft_itoa(n), fd);
+	char	*s;
+
+	s = ft_itoa(n);
+	if (!s)
+		return ;
+	ft_putstr_fd(s, fd);
+	free(s);
 }
