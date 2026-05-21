@@ -24,3 +24,17 @@ char	*ft_strdup(const char *s)
 	ft_memcpy(dup, s, size);
 	return (dup);
 }
+//
+///* DEBUGGING */
+//
+//#include <stdio.h>
+//
+//int	main(void)
+//{
+//	char	*str;
+//	char	*res;
+//
+//	res = ft_strdup(str);
+//	printf("res: \"%s\"\n", res);
+//	return (0);
+//}
