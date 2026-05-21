@@ -41,7 +41,7 @@ char	*ft_itoa(int n)
 	size_t		len;
 
 	len = ft_numlen(n);
-	aoti = (char *)malloc(sizeof(char) * (len + 1));
+	aoti = (char *)malloc(len + 1);
 	if (!aoti)
 		return (NULL);
 	aoti[len--] = '\0';
