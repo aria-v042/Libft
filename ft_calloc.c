@@ -14,13 +14,13 @@
 
 void	*ft_calloc(size_t n, size_t size)
 {
-	void	*a;
+	void	*ptr;
 
-	if (!n || !size)
-		return (malloc(0));
-	a = malloc(n * size);
-	if (!a)
+	if (size && n > SIZE_MAX / size)
 		return (NULL);
-	ft_bzero(a, (n * size));
-	return (a);
+	ptr = malloc(n * size);
+	if (!ptr)
+		return (NULL);
+	ft_bzero(ptr, n * size);
+	return (ptr);
 }
