@@ -36,3 +36,16 @@ char	*ft_strtrim(char const *s1, char const *set)
 	ft_strlcpy(s2, s1 + i, (j - i + 2));
 	return (s2);
 }
+//
+///* DEBUGGING */
+//
+//#include <stdio.h>
+//
+//int	main(void)
+//{
+//	char	*res;
+//
+//	res = ft_strtrim("aaa", "a");
+//	printf("res = \"%s\"\n", res);
+//	return (0);
+//}
