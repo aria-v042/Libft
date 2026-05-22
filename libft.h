@@ -6,7 +6,7 @@
 /*   By: frodrig2 <frodrig2@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 22:23:55 by frodrig2          #+#    #+#             */
-/*   Updated: 2026/05/21 04:45:20 by frodrig2         ###   ########.fr       */
+/*   Updated: 2026/05/22 05:00:43 by frodrig2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,6 @@ typedef struct s_list
 }					t_list;
 
 t_list	*ft_lstnew(void	*content);
+t_list	ft_lstadd_front(t_list **lst, t_list *new);
 
 #endif
