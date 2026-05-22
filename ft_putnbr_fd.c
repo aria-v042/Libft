@@ -14,12 +14,15 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	char	*s;
+	long long	big;
 
-	s = ft_itoa(n);
-	if (!s)
-		return ;
-	ft_putstr_fd(s, fd);
-	free(s);
+	big = (long long)n;
+	if (big < 0)
+	{
+		ft_putchar_fd('-', fd);
+		big *= -1;
+	}
+	if (big >= 10)
+		ft_putnbr_fd((int)(big / 10), fd);
+	ft_putchar_fd((char)('0' + (big % 10)), fd);
 }
-// TODO - can't allocate memory
