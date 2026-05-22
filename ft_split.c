@@ -77,6 +77,6 @@ char	**ft_split(char const *s, char c)
 		else
 			s++;
 	}
-	words[w] = NULL; 
+	words[w] = NULL;
 	return (words);
 }
