@@ -237,9 +237,9 @@ The three implementations of Libc mentioned above were consulted additionally to
 
 Tests were developed independently for the first section of the project. The structure and formatting took some inspiration from my pisicinemate [gopiment](https://github.com/GoPepperPY)'s [Libft-2026/main.c](https://github.com/GoPepperPY/Libft-2026/blob/main/main.c), but the testing framework itself was written from scratch. I learned a lot by implementing my own testing, but I decided to not continue doing so for Parts 2 and 3 as it was consuming way too much of my time with diminishing returns in terms of what I was learning with each new test.
 
-Although the `test.c` file was not delivered in the official project submission, it is available in this repository with the purpose of allowing users and other students to make use of it or even to serve as an inspiration for their own testing framework.
+Although the `test.c` file was not delivered in the official project submission, it is available in the `extras/` folder of this repository with the purpose of allowing users and other students to make use of it or even to serve as an inspiration for their own testing framework.
 
-> You can use the `Makefile` provided in the `extras/` folder to compile the tests with `make test`.
+> You can use the extras' `Makefile` to compile the tests by running `make test` from within the `extras/` folder.
 > After compiling, run the tests by executing `./runtests`.
 > When you're done, use `make tclean` or manually remove the program.
 
@@ -247,7 +247,7 @@ Although the `test.c` file was not delivered in the official project submission,
 
 GDB was used for debugging some of the functions: small debugger programs were written at the end of the function's source code file, and then compiled with the `-g` flag using `cc`. These programs were left commented at the end of those files.
 
-> You can use the `Makefile` provided in the `extras/` folder to compile debugging programs with the `-g` flag with `make debug <file.c>`.
+> You can use the extras' `Makefile` to compile debugging programs with the `-g` flag by running `make debug <file.c>` from within the `extras/` folder.
 > Run the compiled program by executing `./debug`. When you're done, use `make dclean` or manually remove the program.
 
 ### Use of AI
