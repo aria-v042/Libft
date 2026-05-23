@@ -11,16 +11,21 @@
 # **************************************************************************** #
 
 NAME = libft.a
-CC = cc
+
 CFLAGS = -Wall -Wextra -Werror
+CC = cc $(CFLAGS)
+
 SRCS_DIR = .
 SRCS = $(shell find $(SRCS_DIR) -name 'ft_*.c' ! -name 'ft_lst*.c')
-BONUS = $(shell find $(SRCS_DIR) -name 'ft_lst*.c')
 OBJS = $(SRCS:.c=.o)
+
+BONUS = $(shell find $(SRCS_DIR) -name 'ft_lst*.c')
 BONUS_OBJS = $(BONUS:.c=.o)
+
 TEST = test.c
-DEBUG ?= $(or $(filter %.c, $(MAKECMDGOALS)), $(TEST))
 T_OUT = runtests
+
+DEBUG ?= $(or $(filter %.c, $(MAKECMDGOALS)), $(TEST))
 D_OUT = debug
 
 all: $(NAME)
@@ -32,17 +37,17 @@ bonus: $(OBJS) $(BONUS_OBJS)
 	ar -rcs $(NAME) $(OBJS) $(BONUS_OBJS)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) -c $< -o $@
 
 ifneq ($(filter %.c, $(MAKECMDGOALS)),)
 %.c: ;
 endif
 
 test: all
-	$(CC) $(CFLAGS) $(TEST) $(NAME) -o $(T_OUT) && $(MAKE) fclean
+	$(CC) $(TEST) $(NAME) -o $(T_OUT) && $(MAKE) fclean
 
 debug: all
-	$(CC) $(CFLAGS) -g $(DEBUG) $(NAME) -o $(D_OUT) && $(MAKE) fclean
+	$(CC) -g $(DEBUG) $(NAME) -o $(D_OUT) && $(MAKE) fclean
 
 clean:
 	rm -f $(OBJS) $(BONUS_OBJS)
