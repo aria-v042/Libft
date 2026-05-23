@@ -53,7 +53,7 @@ cc your_file.c -Llibft -lft -Ilibft -o your_program
 
 #### Extra rules
 
-These rules were not included in the official submission of the project, but were left in this repository for easily allowing users to test and debug either mine or their own implementations.
+These rules were not included in the official submission of the project, but were left in `extra/Makefile` for easily allowing users to test and debug either mine or their own implementations from within the `extra/` folder of this repo.
 
 | Rule | Effect |
 |---|---|
@@ -239,7 +239,7 @@ Tests were developed independently for the first section of the project. The str
 
 Although the `test.c` file was not delivered in the official project submission, it is available in this repository with the purpose of allowing users and other students to make use of it or even to serve as an inspiration for their own testing framework.
 
-> You can use the `Makefile` provided in this project to compile the tests with `make test`.
+> You can use the `Makefile` provided in the `extra/` folder to compile the tests with `make test`.
 > After compiling, run the tests by executing `./runtests`.
 > When you're done, use `make tclean` or manually remove the program.
 
@@ -247,7 +247,7 @@ Although the `test.c` file was not delivered in the official project submission,
 
 GDB was used for debugging some of the functions: small debugger programs were written at the end of the function's source code file, and then compiled with the `-g` flag using `cc`. These programs were left commented at the end of those files.
 
-> You can use the `Makefile` provided in this project to compile debugging programs with the `-g` flag with `make debug <file.c>`.
+> You can use the `Makefile` provided in the `extra/` folder to compile debugging programs with the `-g` flag with `make debug <file.c>`.
 > Run the compiled program by executing `./debug`. When you're done, use `make dclean` or manually remove the program.
 
 ### Use of AI
