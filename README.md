@@ -21,8 +21,8 @@ The library is compiled into a static archive, `libft.a`, which can be linked in
 Clone the repository and run `make` at its root:
 
 ```sh
-git clone https://github.com/aria-v042/Libft.git
-cd Libft
+git clone https://github.com/aria-v042/Libft.git libft-aria-v042
+cd libft-aria-v042
 make
 ```
 
@@ -58,7 +58,7 @@ These rules were not included in the official submission of the project, but wer
 | Rule | Effect |
 |---|---|
 | `make test` | Compiles `./test` |
-| `make debug <file>` | Compiles `./debug` using provided source code file; uses `test.c` if no file is provided |
+| `make debug <file.c>` | Compiles `./debug` using provided source code file; uses `test.c` if no file is provided |
 | `make tclean` | Removes object files, `libft.a` and `test` |
 | `make dclean` | Removes object files, `libft.a` and `debug` |
 
@@ -223,23 +223,32 @@ The `content` field holds a `void *`, allowing nodes to store any type of data. 
 - GNU C Library source — [https://sourceware.org/git/glibc.git](https://sourceware.org/git/glibc.git)
 - Apple Libc source — [https://github.com/apple-oss-distributions/Libc](https://github.com/apple-oss-distributions/Libc)
 - musl libc source — [https://github.com/bminor/musl](https://github.com/bminor/musl)
-- the Worldwide Web — additional research.
+- the World Wide Web — additional research.
 
 The three implementations of Libc mentioned above were consulted additionally to the man pages, to clear up ambiguity about edge case behavior.
 
 ### Learning resources
 
-- Caleb Curry — *Structs in C*: [https://youtu.be/IAvfAC4H_0s](https://youtu.be/IAvfAC4H_0s)
-- CodeVault — *Linked Lists in C* (playlist): [https://youtube.com/playlist?list=PLfqABt5AS4FmXeWuuNDS3XGENJO1VYGxl](https://youtube.com/playlist?list=PLfqABt5AS4FmXeWuuNDS3XGENJO1VYGxl)
-- GDB Debugger introduction: [https://youtu.be/MTkDTjdDP3c](https://youtu.be/MTkDTjdDP3c)
+- Caleb Curry — [*Structs in C*](https://youtu.be/IAvfAC4H_0s)
+- CodeVault — [*Linked Lists in C (playlist)*](https://youtube.com/playlist?list=PLfqABt5AS4FmXeWuuNDS3XGENJO1VYGxl)
+- Mike Shah — [*GDB Debugger introduction*](https://youtu.be/MTkDTjdDP3c)
 
 ### Testing
 
-Tests were developed independently, taking some formatting inspiration from [GoPepperPY/Libft-2026](https://github.com/GoPepperPY/Libft-2026/blob/main/main.c), but the testing framework itself was written from scratch. Although the `test.c` program was not delivered in the context of the official 42 project, it is available in this repository. 
+Tests were developed independently for the first section of the project. The structure and formatting took some inspiration from my pisicinemate [gopiment](https://github.com/GoPepperPY)'s [Libft-2026/main.c](https://github.com/GoPepperPY/Libft-2026/blob/main/main.c), but the testing framework itself was written from scratch. I learned a lot by implementing my own testing, but I decided to not continue doing so for Parts 2 and 3 as it was consuming way too much of my time with diminishing returns in terms of what I was learning with each new test.
+
+Although the `test.c` file was not delivered in the official project submission, it is available in this repository with the purpose of allowing users and other students to make use of it or even to serve as an inspiration for their own testing framework.
+
+> You can use the `Makefile` provided in this project to compile the tests with `make test`.
+> After compiling, run the tests by executing `./runtests`.
+> When you're done, use `make tclean` or manually remove the program.
 
 ### Debugging
 
-GDB was used for debugging some of the functions: small debugger programs were written at the end of the function's source code file, and then compiled with the `-g` flag using `cc`. These programs were left commented in those functions.
+GDB was used for debugging some of the functions: small debugger programs were written at the end of the function's source code file, and then compiled with the `-g` flag using `cc`. These programs were left commented at the end of those files.
+
+> You can use the `Makefile` provided in this project to compile debugging programs with the `-g` flag with `make debug <file.c>`.
+> Run the compiled program by executing `./debug`. When you're done, use `make dclean` or manually remove the program.
 
 ### Use of AI
 
