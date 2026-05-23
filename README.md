@@ -10,7 +10,7 @@ The project is divided into three parts: a reimplementation of common Libc funct
 
 Beyond the practical output, the project is designed to build a genuine understanding of how foundational C functions work at the byte level — memory layout, pointer arithmetic, string termination, overflow handling — things that are easy to take for granted when using the standard library directly.
 
-The library is compiled into a static archive, `libft.a`, which can be linked into any future project.
+The library is compiled into a static archive, `libft.a`, which can be linked into future projects.
 
 ---
 
