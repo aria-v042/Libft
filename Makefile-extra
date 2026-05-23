@@ -16,11 +16,8 @@ CFLAGS = -Wall -Wextra -Werror
 CC = cc $(CFLAGS)
 
 SRCS_DIR = .
-SRCS = $(shell find $(SRCS_DIR) -name 'ft_*.c' ! -name 'ft_lst*.c')
+SRCS = $(shell find $(SRCS_DIR) -name 'ft_*.c')
 OBJS = $(SRCS:.c=.o)
-
-BONUS = $(shell find $(SRCS_DIR) -name 'ft_lst*.c')
-BONUS_OBJS = $(BONUS:.c=.o)
 
 TEST = test.c
 T_OUT = runtests
@@ -33,8 +30,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	ar -rcs $(NAME) $(OBJS)
 
-bonus: $(OBJS) $(BONUS_OBJS)
-	ar -rcs $(NAME) $(OBJS) $(BONUS_OBJS)
+bonus: all
 
 %.o: %.c
 	$(CC) -c $< -o $@
