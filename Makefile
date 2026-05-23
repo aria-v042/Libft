@@ -16,12 +16,10 @@ CFLAGS = -Wall -Wextra -Werror
 SRCS_DIR = .
 SRCS = $(shell find $(SRCS_DIR) -name 'ft_*.c' ! -name 'ft_lst*.c')
 BONUS = $(shell find $(SRCS_DIR) -name 'ft_lst*.c')
-OBJS_DIR = .
 OBJS = $(SRCS:.c=.o)
 BONUS_OBJS = $(BONUS:.c=.o)
 TEST = test.c
 DEBUG ?= $(or $(filter %.c, $(MAKECMDGOALS)), $(TEST))
-GOPEPPER = gopepper.c
 T_OUT = runtests
 D_OUT = debug
 
@@ -43,9 +41,6 @@ endif
 test: all
 	$(CC) $(CFLAGS) $(TEST) $(NAME) -o $(T_OUT) && $(MAKE) fclean
 
-gopepper: all
-	$(CC) $(CFLAGS) $(GOPEPPER) $(NAME) -o $(T_OUT) && $(MAKE) fclean
-
 debug: all
 	$(CC) $(CFLAGS) -g $(DEBUG) $(NAME) -o $(D_OUT) && $(MAKE) fclean
 
@@ -63,4 +58,4 @@ dclean: fclean
 
 re: fclean all
 
-.PHONY: all clean fclean re test gopepper debug tclean dclean
+.PHONY: all clean fclean re test debug tclean dclean
