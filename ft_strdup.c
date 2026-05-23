@@ -31,10 +31,9 @@ char	*ft_strdup(const char *s)
 //
 //int	main(void)
 //{
-//	char	*str;
 //	char	*res;
 //
-//	res = ft_strdup(str);
+//	res = ft_strdup("ola teste");
 //	printf("res: \"%s\"\n", res);
 //	return (0);
 //}
