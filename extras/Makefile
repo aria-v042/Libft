@@ -46,7 +46,7 @@ debug: all
 	$(CC) -g $(DEBUG) $(NAME) -o $(D_OUT) && $(MAKE) fclean
 
 clean:
-	rm -f $(OBJS) $(BONUS_OBJS)
+	rm -f $(OBJS)
 
 fclean: clean
 	rm -f $(NAME)
