@@ -12,6 +12,8 @@ Beyond the practical output, the project is designed to build a genuine understa
 
 The library is compiled into a static archive, `libft.a`, which can be linked into future projects.
 
+The project's code was written in accordance with [The Norm v4.1](https://github.com/42school/norminette/blob/master/pdf/en.norm.pdf).
+
 ---
 
 ## Instructions
