@@ -12,8 +12,8 @@
 
 NAME = libft.a
 
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
-CC = cc $(CFLAGS)
 
 SRCS_DIR = ..
 SRCS = $(shell find $(SRCS_DIR) -name 'ft_*.c')
@@ -21,7 +21,6 @@ OBJS = $(SRCS:.c=.o)
 
 TEST = test.c
 T_OUT = runtests
-
 DEBUG ?= $(or $(filter %.c, $(MAKECMDGOALS)), $(TEST))
 D_OUT = debug
 
@@ -32,18 +31,20 @@ $(NAME): $(OBJS)
 
 bonus: all
 
+test: all
+	$(CC) $(CFLAGS) -g $(TEST) $(NAME) -o $(T_OUT)
+	$(MAKE) fclean
+
+debug: all
+	$(CC) $(CFLAGS) -g $(DEBUG) $(NAME) -o $(D_OUT)
+	$(MAKE) fclean
+
 %.o: %.c
-	$(CC) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 ifneq ($(filter %.c, $(MAKECMDGOALS)),)
 %.c: ;
 endif
-
-test: all
-	$(CC) $(TEST) $(NAME) -o $(T_OUT) && $(MAKE) fclean
-
-debug: all
-	$(CC) -g $(DEBUG) $(NAME) -o $(D_OUT) && $(MAKE) fclean
 
 clean:
 	rm -f $(OBJS)
