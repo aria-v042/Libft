@@ -13,44 +13,45 @@
 NAME = ../libft.a
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
-
-SRCS_DIR = ..
-SRCS = $(shell find $(SRCS_DIR) -name 'ft_*.c')
-OBJS = $(SRCS:.c=.o)
+CFLAGS = -Wall -Wextra
+INCLUDES = -I..
 
 TEST = test.c
 T_OUT = runtests
 DEBUG ?= $(or $(filter %.c, $(MAKECMDGOALS)), $(TEST))
 D_OUT = debug
 
-all: $(NAME)
-
-$(NAME): $(OBJS)
-	ar -rcs $(NAME) $(OBJS)
-
-bonus: all
-
-test: all
-	$(CC) $(CFLAGS) -g $(TEST) $(NAME) -o $(T_OUT)
-	$(MAKE) fclean
-
-debug: all
-	$(CC) $(CFLAGS) -g $(DEBUG) $(NAME) -o $(D_OUT)
-	$(MAKE) fclean
-
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+PRINTF_TEST = ft_printf_test.c
+PRINTF_T_OUT = test_ft_printf
 
 ifneq ($(filter %.c, $(MAKECMDGOALS)),)
 %.c: ;
 endif
 
+all: $(NAME)
+
+$(NAME):
+	$(MAKE) -C ..
+
+bonus: all
+
+test: all
+	$(CC) $(CFLAGS) $(INCLUDES) -g $(TEST) $(NAME) -o $(T_OUT)
+	$(MAKE) fclean
+
+debug: all
+	$(CC) $(CFLAGS) $(INCLUDES) -g $(DEBUG) $(NAME) -o $(D_OUT)
+	$(MAKE) fclean
+
+ft_printf_test: all
+	$(CC) $(CFLAGS) $(INCLUDES) -g $(PRINTF_TEST) $(NAME) -o $(PRINTF_T_OUT)
+	$(MAKE) fclean
+
 clean:
-	rm -f $(OBJS)
+	$(MAKE) clean -C ..
 
 fclean: clean
-	rm -f $(NAME)
+	$(MAKE) fclean -C ..
 
 tclean: fclean
 	rm -f $(T_OUT)
@@ -58,6 +59,9 @@ tclean: fclean
 dclean: fclean
 	rm -f $(D_OUT)
 
+pclean: fclean
+	rm -f $(PRINTF_T_OUT)
+
 re: fclean all
 
-.PHONY: all clean fclean re test debug tclean dclean
+.PHONY: all bonus clean fclean re test debug ft_printf_test tclean dclean pclean

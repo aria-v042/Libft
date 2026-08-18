@@ -8,6 +8,8 @@ Libft is the first project in the 42 curriculum. The goal is to reimplement a se
 
 The project is divided into three parts: a reimplementation of common Libc functions, a set of additional string and memory utilities not found in the standard library (or that exist in a different form), and a suite of functions for manipulating singly linked lists.
 
+An additional fourth part was later merged into the library: a reimplementation of a subset of the standard library's `printf()`, originally developed and submitted as its own standalone 42 project. It was folded into `libft` to consolidate both projects into a single reusable archive.
+
 Beyond the practical output, the project is designed to build a genuine understanding of how foundational C functions work at the byte level — memory layout, pointer arithmetic, string termination, overflow handling — things that are easy to take for granted when using the standard library directly.
 
 The library is compiled into a static archive, `libft.a`, which can be linked into future projects.
@@ -55,15 +57,16 @@ cc your_file.c -Llibft -lft -Ilibft -o your_program
 
 #### Extra rules
 
-These rules were not included in the official submission of the project, but were left in `extras/Makefile` for easily allowing users to test and debug either mine or their own implementations from within the `extras/` folder of this repo.
+These rules were not included in the official submission of the project, but were left in `.extras/Makefile` for easily allowing users to test and debug either mine or their own implementations from within the `.extras/` folder of this repo.
 
 | Rule | Effect |
 |---|---|
 | `make test` | Compiles `./test` |
 | `make debug <file.c>` | Compiles `./debug` using provided source code file; uses `test.c` if no file is provided |
-| `make tclean` | Removes object files, `libft.a` and `test` |
+| `make ft_printf_test` | Compiles `./test_ft_printf` |
+| `make tclean` | Removes object files, `libft.a` and `runtests` |
 | `make dclean` | Removes object files, `libft.a` and `debug` |
-
+| `make pclean` | Removes object files, `libft.a` and `test_ft_printf` |
 
 ---
 
@@ -217,6 +220,90 @@ The `content` field holds a `void *`, allowing nodes to store any type of data. 
 
 ---
 
+### Part 4 — ft_printf()
+
+*Originally developed and submitted as a standalone 42 project, later merged into this library.*
+
+A reimplementation of a subset of the standard library's `printf()`, using variadic functions to handle a defined set of conversion specifiers.
+
+| Specifier | Output |
+|---|---|
+| `%c` | Single character |
+| `%s` | String (null-terminated, C convention) |
+| `%p` | Pointer address in hexadecimal (`0x...`) |
+| `%d`, `%i` | Signed decimal integer |
+| `%u` | Unsigned decimal integer |
+| `%x` | Unsigned integer in lowercase hexadecimal |
+| `%X` | Unsigned integer in uppercase hexadecimal |
+| `%%` | Literal percent sign |
+
+The function returns the total number of characters written, matching the behavior of the original `printf()`.
+
+> Internal helpers for this module (`parse_specification()`, the `convert_*()` functions, `ft_putnbr_base()`, and `ft_numlen()`) are declared in `ft_printf/ft_printf.h` and are not part of the library's public interface — only `ft_printf()` itself is exposed via `libft.h`.
+
+#### Algorithms and data structure
+
+##### Format string parsing
+
+The function's core loop iterates through the format string character by character, copying ordinary characters (not %) as-is to the output stream using the `write()` function. When a conversion specification is found, introduced by a % character, the format string pointer is advanced to the next position and is passed to the `parse_specification()` function.
+
+##### Conversion specification parsing
+
+`parse_specification()` takes the conversion specification and the address of the `va_list` of arguments, and routes the latter to the appropriate handler. It is implemented as a series of conditionals mapping each valid specifier to the dedicated conversion function. Unknown or unsupported specifiers are silently ignored.
+
+##### Conversion handling
+
+Each specifier type is handled by a corresponding function responsible for correctly converting the next argument in the `va_list` and writing it to the standard output stream.
+
+The numeric specifiers that require a base conversion share a common utility function `ft_putnbr_base()`, that also updates the variable containing the length of the converted number through its address.
+
+Pointer printing (`%p`) is treated as a special case of hex output: the address is cast to `uintptr_t` and printed with the `0x` prefix prepended. The data type used is `uintptr_t` rather than `unsigned long` or `unsigned int` for compatibility with pointer width variation across architectures.
+
+---
+
+## Testing and debugging
+
+### Testing
+
+Tests were developed independently for the first section of the project. The structure and formatting took some inspiration from my pisicinemate [gopiment](https://github.com/GoPepperPY)'s [Libft-2026/main.c](https://github.com/GoPepperPY/Libft-2026/blob/main/main.c), but the testing framework itself was written from scratch. I learned a lot by implementing my own testing, but I decided to not continue doing so for Parts 2 and 3 as it was consuming way too much of my time with diminishing returns in terms of what I was learning with each new test.
+
+Although the `test.c` file was not delivered in the official project submission, it is available in the `.extras/` folder of this repository with the purpose of allowing users and other students to make use of it or even to serve as an inspiration for their own testing framework.
+
+> You can use the extras' `Makefile` to compile the tests by running `make test` from within the `.extras/` folder.
+> After compiling, run the tests by executing `./test`.
+> When you're done, use `make tclean` or manually remove the program.
+
+#### ft_printf
+
+*`ft_printf()` was originally developed and tested as a standalone project before being merged into this library.*
+
+A tester program was created to compare `ft_printf()` against the standard `printf()`. Each test case calls both functions with the same arguments and displays the returned value of each.
+
+| Test case | Tested values |
+|---|---|
+| Format string with no conversion | `"hello world\n"` |
+| `NULL` format string | `NULL` |
+| `%c` | `'f'`, `0` |
+| `%s` | `"hi friend"`, `NULL` |
+| `%p` | The function's own pointer, `NULL` |
+| `%d`, `%i` | `42`, `INT_MIN`, `INT_MAX` |
+| `%u` | `0`, `UINT_MAX` |
+| `%x`, `%X` | `42`, `UINT_MAX` |
+| `%%` | Literal percent sign |
+
+The `NULL` and boundary values (`INT_MIN`, `INT_MAX`, `UINT_MAX`) are the cases most likely to expose bugs. Overflow handling, unsigned wrapping, and guarding against NULL values are common points-of-failure.
+
+> The tester's source is available as `ft_printf_test.c` in the `.extras/` folder. Compile it with `make ft_printf_test` from within `.extras/`, then run `./test_ft_printf`. When you're done, use `make pclean` or manually remove the program.
+
+### Debugging
+
+GDB was used for debugging some of the functions: small debugger programs were written at the end of the function's source code file, and then compiled with the `-g` flag using `cc`. These programs were left commented at the end of those files.
+
+> You can use the `.extras/Makefile` to compile debugging programs with the `-g` flag by running `make debug <file.c>` from within the `.extras/` folder.
+> Run the compiled program by executing `./debug`. When you're done, use `make dclean` or manually remove the program.
+
+---
+
 ## Resources
 
 ### Reference material
@@ -234,23 +321,6 @@ The three implementations of Libc mentioned above were consulted additionally to
 - Caleb Curry — [*Structs in C*](https://youtu.be/IAvfAC4H_0s)
 - CodeVault — [*Linked Lists in C (playlist)*](https://youtube.com/playlist?list=PLfqABt5AS4FmXeWuuNDS3XGENJO1VYGxl)
 - Mike Shah — [*GDB Debugger introduction*](https://youtu.be/MTkDTjdDP3c)
-
-### Testing
-
-Tests were developed independently for the first section of the project. The structure and formatting took some inspiration from my pisicinemate [gopiment](https://github.com/GoPepperPY)'s [Libft-2026/main.c](https://github.com/GoPepperPY/Libft-2026/blob/main/main.c), but the testing framework itself was written from scratch. I learned a lot by implementing my own testing, but I decided to not continue doing so for Parts 2 and 3 as it was consuming way too much of my time with diminishing returns in terms of what I was learning with each new test.
-
-Although the `test.c` file was not delivered in the official project submission, it is available in the `extras/` folder of this repository with the purpose of allowing users and other students to make use of it or even to serve as an inspiration for their own testing framework.
-
-> You can use the extras' `Makefile` to compile the tests by running `make test` from within the `extras/` folder.
-> After compiling, run the tests by executing `./runtests`.
-> When you're done, use `make tclean` or manually remove the program.
-
-### Debugging
-
-GDB was used for debugging some of the functions: small debugger programs were written at the end of the function's source code file, and then compiled with the `-g` flag using `cc`. These programs were left commented at the end of those files.
-
-> You can use the extras' `Makefile` to compile debugging programs with the `-g` flag by running `make debug <file.c>` from within the `extras/` folder.
-> Run the compiled program by executing `./debug`. When you're done, use `make dclean` or manually remove the program.
 
 ### Use of AI
 
